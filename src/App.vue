@@ -12,6 +12,7 @@
   </div>
 </template>
 
+
 <style scoped>
 .logo {
   height: 6em;
