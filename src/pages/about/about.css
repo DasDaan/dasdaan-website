@@ -1,0 +1,736 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+.about-page {
+  min-height: 100vh;
+  background-color: #52505017;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ========================================
+   SCROLL NAVIGATION LINE
+   ======================================== */
+.scroll-nav {
+  display: none; /* Hide the old fixed nav */
+}
+
+/* ========================================
+   SCROLL NAVIGATION LINE - REMOVED
+   ======================================== */
+.scroll-nav {
+  display: none; 
+}
+
+/* Hide on smaller screens */
+@media (max-width: 1100px) {
+  /* Timeline remnants removed */
+}
+
+/* Me in a Nut-shell Section */
+.nutshell-section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Cutout Image - Centered */
+.cutout-image-wrapper {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: 80%;
+  z-index: 1;
+}
+
+.cutout-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.15));
+}
+
+/* Paint Splat Container - Positioned at bottom */
+.splat-container {
+  position: absolute;
+  z-index: 2;
+  bottom: 8%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 900px;
+}
+
+.splat-shape {
+  position: relative;
+  padding: 2.5rem 4rem;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  color: #fff;
+  border-radius: 80% 75% 85% 70% / 35% 30% 35% 40%;
+  box-shadow: 
+    0 25px 50px rgba(0, 0, 0, 0.25),
+    0 10px 20px rgba(0, 0, 0, 0.15),
+    inset 0 -5px 20px rgba(255, 255, 255, 0.05);
+  transform: rotate(-1deg);
+  transition: transform 0.3s ease;
+}
+
+.splat-shape .section-label {
+  color: #ff5757;
+}
+
+.splat-shape .intro-text {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.7;
+}
+
+/* Base section label (used by other sections) */
+.section-label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #ff5757;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 1rem;
+}
+
+/* ========================================
+   INTRODUCTION SECTION
+   ======================================== */
+.intro-section {
+  padding: 6rem 2rem;
+  background-color: #1a1a1a;
+}
+
+.intro-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  opacity: 0;
+  transform: translateY(60px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.intro-content.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* About Me Text */
+.about-me-text {
+  margin-bottom: 4rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.about-me-text .section-label {
+  color: #ff5757;
+  margin-bottom: 1.5rem;
+}
+
+/* Line by Line Slide Down Animation */
+.typing-text {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  transform: translateY(-30px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.typing-text.typing {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.typing-text.delay-1 {
+  transition-delay: 0.25s;
+}
+
+/* ========================================
+   BENTO BOX GRID
+   ======================================== */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto auto;
+  gap: 1.25rem;
+}
+
+/* Bento Item Base */
+.bento-item {
+  background: linear-gradient(145deg, #2a2a2a 0%, #1f1f1f 100%);
+  border-radius: 16px;
+  padding: 1.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+}
+
+.bento-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Bento Sizes */
+.bento-wide {
+  grid-column: span 2;
+}
+
+/* Bento Header */
+.bento-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.bento-icon {
+  font-size: 1.25rem;
+}
+
+.bento-title-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.bento-subtitle {
+  font-size: 0.65rem;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.bento-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+/* Bento Image Container */
+.bento-image-container {
+  width: 100%;
+  height: 150px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.bento-image-container.small {
+  height: 100px;
+}
+
+.bento-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Bento Image Grid */
+.bento-image-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+}
+
+.bento-image-grid.small {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.bento-thumb {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Todo List */
+.todo-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.todo-item {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.8);
+  padding: 0.5rem 0.75rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.todo-item::before {
+  content: '○';
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.todo-item.done {
+  text-decoration: line-through;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.todo-item.done::before {
+  content: '●';
+  color: #4ECDC4;
+}
+
+/* Bento Content Center */
+.bento-content-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  min-height: 80px;
+}
+
+.bento-big-text {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.bento-number {
+  font-size: 3rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #ff5757, #ff8585);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Backstory Section */
+.backstory-section {
+  padding: 4rem 2rem 6rem;
+  max-width: 1500px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.backstory-content {
+  display: flex;
+  gap: 4rem;
+  align-items: flex-start;
+  opacity: 0;
+  transform: translateY(60px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.backstory-content.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.backstory-image-wrapper {
+  flex-shrink: 0;
+  width: 800px;
+  height: 900px;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s,
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s;
+}
+
+.backstory-content.animate-in .backstory-image-wrapper {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.backstory-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.backstory-text {
+  flex: 1;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s,
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s;
+}
+
+.backstory-content.animate-in .backstory-text {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.backstory-paragraph {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  font-weight: 400;
+  color: #4a4a4a;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+.backstory-paragraph:last-child {
+  margin-bottom: 0;
+}
+
+/* ========================================
+   INTERESTS SECTION
+   ======================================== */
+.interests-section {
+  padding: 6rem 2rem;
+  background-color: #1a1a1a;
+}
+
+.interests-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.interests-title {
+  display: block;
+  text-align: center;
+  margin-bottom: 4rem;
+  font-size: 0.85rem;
+}
+
+/* Interest Item */
+.interest-item {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  margin-bottom: 4rem;
+  overflow: hidden;
+}
+
+.interest-item:last-child {
+  margin-bottom: 0;
+}
+
+/* Image Wrapper */
+.interest-image-wrapper {
+  flex: 0 0 300px;
+  height: 200px;
+  border-radius: 12px;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateX(-80px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.interest-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Vertical Divider */
+.interest-divider {
+  width: 3px;
+  height: 120px;
+  background: linear-gradient(180deg, #ff5757 0%, #ff8585 100%);
+  border-radius: 2px;
+  flex-shrink: 0;
+  opacity: 0;
+  transform: scaleY(0);
+  transition: opacity 0.5s ease 0.3s,
+              transform 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.3s;
+}
+
+/* Text Content */
+.interest-text {
+  flex: 1;
+  opacity: 0;
+  transform: translateX(80px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.interest-heading {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.interest-paragraph {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.7;
+}
+
+/* Animation State */
+.interest-item.animate-in .interest-image-wrapper {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.interest-item.animate-in .interest-divider {
+  opacity: 1;
+  transform: scaleY(1);
+}
+
+.interest-item.animate-in .interest-text {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ========================================
+   CONTACT CTA SECTION
+   ======================================== */
+
+.contact-cta-section {
+  padding: 8rem 2rem;
+  background: linear-gradient(180deg, #1a1a1a 0%, #0f0f0f 100%);
+  text-align: center;
+}
+
+.contact-cta-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.contact-cta-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.contact-cta-description {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 3rem;
+}
+
+.contact-cta-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 2.5rem;
+  background: linear-gradient(135deg, #ff5757 0%, #ff8585 100%);
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 50px;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.contact-cta-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(135deg, #cc3d3d 0%, #b33030 100%);
+  border-radius: 50px;
+  transition: width 0.8s ease;
+  z-index: -1;
+}
+
+.contact-cta-button:hover::before {
+  width: 100%;
+}
+
+.contact-cta-button:hover {
+  color: #fff;
+}
+
+.contact-cta-button svg {
+  transition: transform 0.3s ease;
+}
+
+.contact-cta-button:hover svg {
+  transform: translateX(5px);
+}
+
+@media (max-width: 1100px) {
+  .cutout-image-wrapper {
+    width: 70%;
+    max-width: 550px;
+  }
+
+  .splat-container {
+    max-width: 600px;
+  }
+
+  .bento-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .cutout-image-wrapper {
+    width: 80%;
+    height: 70%;
+  }
+
+  .splat-container {
+    bottom: 5%;
+    width: 95%;
+  }
+
+  .splat-shape {
+    padding: 2.5rem 2rem;
+  }
+
+  .backstory-content {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .backstory-image-wrapper {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .intro-section {
+    padding: 4rem 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-label {
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+  }
+
+  .backstory-section {
+    padding: 3rem 1.5rem 4rem;
+  }
+
+  .bento-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .bento-wide {
+    grid-column: span 2;
+  }
+
+  .about-me-text {
+    margin-bottom: 3rem;
+  }
+
+  .interest-item {
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: center;
+  }
+
+  .interest-image-wrapper {
+    flex: none;
+    width: 100%;
+    max-width: 350px;
+    height: 180px;
+    transform: translateY(-40px);
+  }
+
+  .interest-divider {
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, #ff5757 0%, #ff8585 100%);
+  }
+
+  .interest-text {
+    transform: translateY(40px);
+  }
+
+  .interest-item.animate-in .interest-image-wrapper,
+  .interest-item.animate-in .interest-text {
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 480px) {
+  .cutout-image-wrapper {
+    width: 95%;
+    height: 60%;
+  }
+
+  .splat-container {
+    bottom: 3%;
+  }
+
+  .splat-shape {
+    padding: 2rem 1.5rem;
+  }
+
+  .backstory-section {
+    padding: 2rem 1rem 3rem;
+  }
+
+  .intro-section {
+    padding: 3rem 1rem;
+  }
+
+  .bento-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .bento-wide {
+    grid-column: span 1;
+  }
+
+  .bento-item {
+    padding: 1rem;
+  }
+
+  .interests-section {
+    padding: 4rem 1rem;
+  }
+
+  .interest-item {
+    margin-bottom: 3rem;
+  }
+
+  .interest-heading {
+    font-size: 1.25rem;
+  }
+
+  .contact-cta-section {
+    padding: 5rem 1.5rem;
+  }
+
+  .contact-cta-description {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .contact-cta-button {
+    padding: 0.875rem 2rem;
+    font-size: 0.9rem;
+  }
+}
