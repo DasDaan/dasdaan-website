@@ -15,7 +15,7 @@ export const cardsData = [
     gradientEnd: '#45B7AA',
     description: 'Explore my portfolio of creative projects, from web development to interactive experiences.',
     icon: '🚀',
-    backgroundImage: '/src/assets/filler-collage-projects.png',
+    backgroundImage: '/src/assets/home-cards/filler-collage-projects.png',
     route: '/projects'
   },
   {
@@ -25,7 +25,8 @@ export const cardsData = [
     gradientEnd: '#8E44AD',
     description: 'Dive into my film and video work, featuring animations, short films, and visual storytelling.',
     icon: '🎬',
-    backgroundImage: '/src/salle-cinema-photo-parue-1er-decembre_1_729_486.jpg'
+    backgroundImage: '/src/assets/home-cards/salle-cinema-photo-parue-1er-decembre_1_729_486.jpg',
+    route: '/cinema'
   },
   {
     id: 'gallery',
@@ -34,7 +35,8 @@ export const cardsData = [
     gradientEnd: '#C2185B',
     description: 'Browse through my photography collection and Photoshop creations, capturing moments and crafting visual art.',
     icon: '📷',
-    backgroundImage: '/src/assets/photograph-fill-background.png'
+    backgroundImage: '/src/assets/home-cards/photograph-fill-background.png',
+    route: '/gallery'
   },
   {
     id: 'thelab',
@@ -43,7 +45,7 @@ export const cardsData = [
     gradientEnd: '#0097A7',
     description: 'Experimental mini projects and creative explorations that never quite made it to full projects, but are still worth sharing.',
     icon: '🧪',
-    backgroundImage: '/src/assets/project-lab.png'
+    backgroundImage: '/src/assets/home-cards/project-lab.png'
   },
   {
     id: 'music',

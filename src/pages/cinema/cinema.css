@@ -1,0 +1,274 @@
+/* Cinema Page Styles - Movie Theater Theme */
+
+.cinema-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #000;
+}
+
+.cinema-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('@/assets/cinema-movie-theater-with-blank-screen-and-red-seat-vector.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+
+/* The border frame that wraps around the viewport */
+.screen-border {
+  position: absolute;
+  top: 6.5%;
+  left: 13.9%;
+  width: 72.2%;
+  height: 56%;
+  border: 5px solid white;
+  box-sizing: border-box;
+  z-index: 10;
+}
+
+/* The viewport sits inside the border and fills it completely */
+.screen-viewport {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* Hide scrollbar but keep functionality */
+.screen-viewport::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
+}
+
+.screen-viewport {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+/* The scrollable content container */
+.screen-scroll-content {
+  width: 100%;
+}
+
+/* ========================================
+   NETFLIX-STYLE UI
+   ======================================== */
+
+.netflix-container {
+  min-height: 100%;
+  background: #141414;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+/* ========================================
+   HERO SECTION
+   ======================================== */
+
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  overflow: hidden;
+}
+
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-background img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.hero-gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    linear-gradient(
+      90deg,
+      rgba(20, 20, 20, 0.85) 0%,
+      rgba(20, 20, 20, 0.5) 25%,
+      rgba(20, 20, 20, 0.15) 50%,
+      transparent 70%
+    ),
+    linear-gradient(
+      180deg,
+      transparent 50%,
+      rgba(20, 20, 20, 0.5) 75%,
+      #141414 100%
+    );
+}
+
+/* Hero content - LOWERED */
+.hero-content {
+  position: absolute;
+  left: 0;
+  bottom: 8%;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0 2.5rem;
+  max-width: 45%;
+}
+
+/* Series Badge */
+.series-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.netflix-n {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  background: #e50914;
+  color: white;
+  font-weight: 800;
+  font-size: 0.7rem;
+  border-radius: 2px;
+}
+
+.series-text {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #b3b3b3;
+  letter-spacing: 3px;
+}
+
+/* Hero Title */
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: white;
+  margin: 0 0 0.5rem 0;
+  letter-spacing: 4px;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+  font-family: 'Times New Roman', Times, serif;
+  text-transform: uppercase;
+}
+
+/* Hero Meta */
+.hero-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: #a0a0a0;
+  margin-bottom: 0.75rem;
+}
+
+.meta-dot {
+  color: #555;
+  font-size: 0.5rem;
+}
+
+/* Hero Description */
+.hero-description {
+  font-size: 0.95rem;
+  color: #e5e5e5;
+  line-height: 1.5;
+  margin: 0;
+  font-weight: 400;
+}
+
+/* ========================================
+   CONTENT ROWS - BIGGER CARDS
+   ======================================== */
+
+.content-rows {
+  padding: 1rem 2.5rem 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.content-row {
+  width: 100%;
+}
+
+.row-title {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #999;
+  margin: 0 0 0.85rem 0;
+  letter-spacing: 0.3px;
+}
+
+.row-scroll {
+  display: flex;
+  gap: 0.75rem;
+  overflow-x: auto;
+  padding-bottom: 0.75rem;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  margin-right: -2.5rem;
+  padding-right: 2.5rem;
+}
+
+.row-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+/* Content Cards - BIGGER */
+.content-card {
+  flex-shrink: 0;
+  width: 240px;
+  height: 135px;
+  border-radius: 5px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.25s ease;
+}
+
+.content-card:hover {
+  transform: scale(1.08);
+  z-index: 10;
+}
+
+.content-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1400px) {
+  .hero-title {
+    font-size: 2.75rem;
+  }
+  
+  .hero-section {
+    height: 450px;
+  }
+  
+  .hero-content {
+    max-width: 50%;
+  }
+  
+  .content-card {
+    width: 200px;
+    height: 115px;
+  }
+}

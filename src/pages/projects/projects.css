@@ -7,8 +7,6 @@
 .projects-page {
   min-height: 100vh;
   background: linear-gradient(180deg, rgb(39, 39, 39) 0%, rgb(25, 25, 25) 100%);
-  padding: 2rem;
-  padding-top: 100px;
 }
 
 .projects-container {
@@ -16,29 +14,28 @@
   margin: 0 auto;
 }
 
-/* Page Header */
+/* Page Header - Matching Homepage Hero Style */
 .projects-header {
   text-align: center;
-  margin-bottom: 3rem;
+  padding: 4rem 2rem 3rem;
+  margin-bottom: 0;
+  margin-top: -100px;
+  padding-top: calc(100px + 4rem);
 }
 
 .projects-title {
-  font-family: 'Inter', sans-serif;
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-  letter-spacing: -0.02em;
-  background: linear-gradient(135deg, #FF6B6B, #4ECDC4, #9B59B6);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  font-size: clamp(2rem, 6vw, 4rem);
+  color: #fff;
+  text-shadow: 
+    3px 3px 0 #FF6B6B,
+    -3px -3px 0 #4ECDC4;
+  margin-bottom: 1rem;
 }
 
 .projects-subtitle {
-  font-family: 'Inter', sans-serif;
-  font-size: 1.1rem;
-  color: rgba(255, 255, 255, 0.6);
-  font-weight: 400;
+  font-size: clamp(0.6rem, 2vw, 0.9rem);
+  color: rgba(255, 255, 255, 0.7);
+  letter-spacing: 2px;
 }
 
 /* ========================================
@@ -49,6 +46,7 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
+  padding: 3rem 2rem;
 }
 
 /* ========================================

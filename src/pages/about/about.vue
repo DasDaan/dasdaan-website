@@ -275,15 +275,12 @@
       </div>
     </section>
 
-    <!-- Footer -->
-    <FooterBar />
   </div>
 </template>
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
 import './about.css'
-import FooterBar from '@/components/FooterBar.vue'
 import fillerImage from '@/assets/filler.png'
 
 const introContent = ref(null)

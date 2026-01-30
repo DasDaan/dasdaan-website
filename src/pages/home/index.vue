@@ -78,8 +78,7 @@
       </div>
     </section>
 
-    <!-- Footer -->
-    <FooterBar />
+
   </div>
 </template>
 
@@ -88,7 +87,7 @@ import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import './index.css'
 import { cardsData } from './cardsData.js'
-import FooterBar from '@/components/FooterBar.vue'
+
 
 const router = useRouter()
 const cards = ref(cardsData)
