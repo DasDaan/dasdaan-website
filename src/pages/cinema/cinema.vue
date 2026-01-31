@@ -15,7 +15,7 @@
             <CinemaNavbar />
 
             <!-- Hero Section with Featured Content -->
-            <section class="hero-section">
+            <section class="cinema-hero-section">
               <div class="hero-background">
                 <img :src="fillerImage" alt="Featured" />
                 <div class="hero-gradient"></div>

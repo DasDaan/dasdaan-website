@@ -4,6 +4,8 @@ import About from '../pages/about/about.vue'
 import Projects from '../pages/projects/projects.vue'
 import Cinema from '../pages/cinema/cinema.vue'
 import Gallery from '../pages/gallery/gallery.vue'
+import Photograph from '../pages/gallery/photograph/photograph.vue'
+import Photoshop from '../pages/gallery/photoshop/photoshop.vue'
 
 const router = createRouter({
   history: createWebHistory(),
@@ -32,6 +34,18 @@ const router = createRouter({
       path: '/gallery',
       name: 'gallery',
       component: Gallery
+    },
+    {
+      path: '/gallery/photograph',
+      name: 'photograph',
+      component: Photograph,
+      meta: { transition: 'slide-left' }
+    },
+    {
+      path: '/gallery/photoshop',
+      name: 'photoshop',
+      component: Photoshop,
+      meta: { transition: 'slide-right' }
     }
   ]
 })

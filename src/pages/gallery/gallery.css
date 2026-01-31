@@ -1,0 +1,237 @@
+.gallery-wrapper {
+  min-height: 100vh;
+  background-color: #fafafa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.gallery-cards-container {
+  display: flex;
+  gap: 2.5rem;
+  max-width: 2400px;
+  width: 100%;
+  justify-content: center;
+}
+
+/* Gallery Card Base */
+.gallery-card {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  max-width: 1400px;
+  min-height: 75vh;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gallery-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
+}
+
+/* Card Image Section */
+.card-image-section {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gallery-card:hover .card-image {
+  transform: scale(1.05);
+}
+
+/* Card Text Section */
+.card-text-section {
+  padding: 2rem 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+/* Photograph card - coral/red theme */
+.photograph-text {
+  background: linear-gradient(135deg, #FF6B6B 0%, #ee5a5a 100%);
+}
+
+/* Photoshop card - teal theme */
+.photoshop-text {
+  background: linear-gradient(135deg, #4ECDC4 0%, #3dbdb5 100%);
+}
+
+/* Text content */
+.card-text-content {
+  flex: 1;
+}
+
+.card-text-content.align-left {
+  text-align: left;
+}
+
+.card-text-content.align-right {
+  text-align: right;
+}
+
+.card-title {
+  font-family: 'Inter', 'Press Start 2P', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 0.5rem 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.card-description {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+}
+
+/* Card Buttons */
+.card-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+  padding: 1rem 1.75rem;
+  background: #fff;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
+}
+
+.card-btn:hover {
+  background: #f5f5f5;
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card-btn svg {
+  transition: transform 0.3s ease;
+}
+
+/* Left button (in left card) - button on left, arrow points right */
+.btn-left {
+  order: -1;
+}
+
+.btn-left:hover svg {
+  transform: translateX(4px);
+}
+
+/* Right button (in right card) - button on right, arrow points left */
+.btn-right {
+  order: 1;
+}
+
+.btn-right:hover svg {
+  transform: translateX(-4px);
+}
+
+/* Photoshop card - reverse layout (text left, button right) */
+.photoshop-card .card-text-section {
+  flex-direction: row-reverse;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
+@media (max-width: 1024px) {
+  .gallery-cards-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .gallery-card {
+    max-width: 100%;
+    width: 100%;
+    min-height: 500px;
+  }
+}
+
+@media (max-width: 768px) {
+  .gallery-wrapper {
+    padding: 3rem 1.5rem;
+  }
+
+  .gallery-card {
+    min-height: 450px;
+    border-radius: 20px;
+  }
+
+  .card-text-section {
+    padding: 1.5rem 2rem;
+    flex-direction: column !important;
+    gap: 1rem;
+  }
+
+  .card-text-content.align-left,
+  .card-text-content.align-right {
+    text-align: center;
+  }
+
+  .card-title {
+    font-size: 1.75rem;
+  }
+
+  .card-description {
+    font-size: 0.95rem;
+  }
+
+  .btn-left,
+  .btn-right {
+    order: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery-wrapper {
+    padding: 2rem 1rem;
+  }
+
+  .gallery-card {
+    min-height: 380px;
+    border-radius: 16px;
+  }
+
+  .card-text-section {
+    padding: 1.25rem 1.5rem;
+  }
+
+  .card-title {
+    font-size: 1.5rem;
+  }
+
+  .card-description {
+    font-size: 0.9rem;
+  }
+
+  .card-btn {
+    padding: 0.875rem 1.5rem;
+    font-size: 0.9rem;
+  }
+}
