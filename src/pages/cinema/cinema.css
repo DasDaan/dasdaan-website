@@ -16,7 +16,7 @@
   height: 100%;
   background-image: url('@/assets/cinema-movie-theater-with-blank-screen-and-red-seat-vector.jpg');
   background-size: cover;
-  background-position: center;
+  background-position: center center;
   background-repeat: no-repeat;
   z-index: 1;
 }
@@ -28,7 +28,7 @@
   left: 13.9%;
   width: 72.2%;
   height: 56%;
-  border: 5px solid white;
+  border: 2px solid white;
   box-sizing: border-box;
   z-index: 10;
 }
@@ -230,7 +230,7 @@
   display: none;
 }
 
-/* Content Cards - BIGGER */
+/* Content Cards */
 .content-card {
   flex-shrink: 0;
   width: 240px;
@@ -253,7 +253,16 @@
   object-fit: cover;
 }
 
-/* Responsive adjustments */
+/* Laptop specific - 1536px width */
+@media (max-width: 1536px) {
+  .screen-border {
+    top: 2%;
+    left: 14%;
+    width: 72%;
+    height: 62%;
+  }
+}
+
 @media (max-width: 1400px) {
   .hero-title {
     font-size: 2.75rem;
@@ -270,5 +279,21 @@
   .content-card {
     width: 200px;
     height: 115px;
+  }
+  
+  .screen-border {
+    top: 7.5%;
+    left: 14.2%;
+    width: 71.6%;
+    height: 54%;
+  }
+}
+
+@media (max-width: 1200px) {
+  .screen-border {
+    top: 8%;
+    left: 14.5%;
+    width: 71%;
+    height: 53%;
   }
 }

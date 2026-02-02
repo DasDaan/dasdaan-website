@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
 
 /* ========================================
    Projects Page - Site Theme Matching
@@ -26,9 +26,9 @@
 .projects-title {
   font-size: clamp(2rem, 6vw, 4rem);
   color: #fff;
-  text-shadow: 
-    3px 3px 0 #FF6B6B,
-    -3px -3px 0 #4ECDC4;
+  text-shadow:
+    3px 3px 0 #ff6b6b,
+    -3px -3px 0 #4ecdc4;
   margin-bottom: 1rem;
 }
 
@@ -60,11 +60,15 @@
   border: 1px solid rgba(255, 255, 255, 0.08);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 420px;
 }
 
 .project-card:hover {
   transform: translateY(-6px);
-  box-shadow: 
+  box-shadow:
     0 12px 40px rgba(0, 0, 0, 0.4),
     0 0 0 1px rgba(78, 205, 196, 0.3);
   border-color: rgba(78, 205, 196, 0.4);
@@ -75,6 +79,7 @@
 .card-main {
   display: flex;
   gap: 0;
+  flex: 1;
 }
 
 /* Project Image */
@@ -109,7 +114,7 @@
 }
 
 .project-name {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 1.3rem;
   font-weight: 600;
   color: #fff;
@@ -118,7 +123,7 @@
 }
 
 .project-description {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 0.875rem;
   color: rgba(255, 255, 255, 0.65);
   line-height: 1.6;
@@ -142,7 +147,7 @@
   display: flex;
   align-items: center;
   gap: 0.65rem;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 0.8rem;
   color: rgba(255, 255, 255, 0.55);
   transition: color 0.2s ease;
@@ -165,11 +170,11 @@
 .feature-icon svg {
   width: 100%;
   height: 100%;
-  fill: #4ECDC4;
+  fill: #4ecdc4;
 }
 
 .feature-item:hover .feature-icon svg {
-  fill: #FF6B6B;
+  fill: #ff6b6b;
 }
 
 .feature-text {
@@ -198,7 +203,7 @@
 }
 
 .project-tag {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 0.7rem;
   font-weight: 500;
   color: rgba(78, 205, 196, 0.9);
@@ -213,7 +218,7 @@
 
 .project-tag:hover {
   background: rgba(78, 205, 196, 0.2);
-  color: #4ECDC4;
+  color: #4ecdc4;
   border-color: rgba(78, 205, 196, 0.4);
 }
 
@@ -227,7 +232,7 @@
   display: flex;
   align-items: center;
   gap: 0.4rem;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 0.75rem;
   font-weight: 600;
   color: #fff;
@@ -253,11 +258,11 @@
 }
 
 .view-project-btn {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 0.75rem;
   font-weight: 600;
   color: #fff;
-  background: linear-gradient(135deg, #FF6B6B 0%, #e55a5a 100%);
+  background: linear-gradient(135deg, #ff6b6b 0%, #e55a5a 100%);
   border: none;
   padding: 0.5rem 1rem;
   border-radius: 6px;
@@ -269,7 +274,7 @@
 }
 
 .view-project-btn:hover {
-  background: linear-gradient(135deg, #ff7b7b 0%, #FF6B6B 100%);
+  background: linear-gradient(135deg, #ff7b7b 0%, #ff6b6b 100%);
   transform: translateY(-2px);
   box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
 }
@@ -282,7 +287,7 @@
   .projects-grid {
     gap: 1.5rem;
   }
-  
+
   .project-image-wrapper {
     flex: 0 0 50%;
   }
@@ -294,7 +299,7 @@
     max-width: 700px;
     margin: 0 auto;
   }
-  
+
   .project-image-wrapper {
     flex: 0 0 45%;
   }
@@ -305,21 +310,21 @@
     padding: 1rem;
     padding-top: 80px;
   }
-  
+
   .card-main {
     flex-direction: column;
   }
-  
+
   .project-image-wrapper {
     flex: none;
     aspect-ratio: 16/9;
   }
-  
+
   .project-info {
     border-left: none;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
   }
-  
+
   .project-name {
     font-size: 1.15rem;
   }
@@ -329,26 +334,26 @@
   .projects-header {
     margin-bottom: 2rem;
   }
-  
+
   .project-info {
     padding: 1rem;
   }
-  
+
   .card-footer {
     flex-direction: column;
     gap: 0.75rem;
     padding: 1rem;
   }
-  
+
   .project-tags {
     justify-content: center;
   }
-  
+
   .card-actions {
     width: 100%;
     justify-content: center;
   }
-  
+
   .github-btn,
   .view-project-btn {
     flex: 1;
