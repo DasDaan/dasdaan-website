@@ -1,0 +1,42 @@
+/* Contact Page Styles */
+.contact-page {
+  min-height: 100vh;
+  background: linear-gradient(180deg, rgb(39, 39, 39) 0%, rgb(25, 25, 25) 100%);
+  padding: 2rem;
+}
+
+.page-header {
+  text-align: center;
+  padding: 4rem 2rem 3rem;
+  margin-top: -100px;
+  padding-top: calc(100px + 4rem);
+}
+
+.page-title {
+  font-size: clamp(2rem, 6vw, 4rem);
+  color: #fff;
+  text-shadow:
+    3px 3px 0 #F39C12,
+    -3px -3px 0 #4ECDC4;
+  margin-bottom: 1rem;
+}
+
+.page-subtitle {
+  font-size: clamp(0.6rem, 2vw, 0.9rem);
+  color: rgba(255, 255, 255, 0.7);
+  letter-spacing: 2px;
+}
+
+.contact-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+}
+
+.coming-soon {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.5rem;
+  color: rgba(255, 255, 255, 0.5);
+  text-align: center;
+  padding: 4rem;
+}

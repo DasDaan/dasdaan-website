@@ -9,7 +9,6 @@
         <router-link to="/cinema" class="nav-link">Cinema</router-link>
         <router-link to="/gallery" class="nav-link">Gallery</router-link>
         <a href="#" class="nav-link">Lab</a>
-        <a href="#" class="nav-link">Music</a>
         <a href="#" class="nav-link">Work</a>
         <a href="#" class="nav-link">Contact</a>
       </div>

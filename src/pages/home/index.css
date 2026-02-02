@@ -1,11 +1,8 @@
+/* Font 'Press Start 2P' is imported globally in style.css */
+
 .home-container {
   min-height: 100vh;
   overflow: hidden;
-}
-
-/* Hide the pixel-bg element */
-.pixel-bg {
-  display: none;
 }
 
 /* Hero section */
@@ -164,7 +161,9 @@
   transform: translateY(-20px);
 }
 
-.card-title {
+.card-title,
+h2.card-title {
+  font-family: "Press Start 2P", "Courier New", monospace !important;
   font-size: clamp(0.6rem, 1.5vw, 0.9rem);
   color: var(--card-color);
   text-transform: uppercase;

@@ -45,15 +45,8 @@ export const cardsData = [
     gradientEnd: '#0097A7',
     description: 'Experimental mini projects and creative explorations that never quite made it to full projects, but are still worth sharing.',
     icon: '🧪',
-    backgroundImage: '/src/assets/home-cards/project-lab.png'
-  },
-  {
-    id: 'music',
-    title: 'Music',
-    color: '#ff6a6aff',
-    gradientEnd: '#f3dc0eff',
-    description: 'Discover the music that inspires me and keeps me in the creative flow.',
-    icon: '🎵'
+    backgroundImage: '/src/assets/home-cards/project-lab.png',
+    route: '/lab'
   },
   {
     id: 'work',
@@ -61,7 +54,8 @@ export const cardsData = [
     color: '#3F51B5',
     gradientEnd: '#303F9F',
     description: 'My professional journey and work experience across different roles and companies.',
-    icon: '💼'
+    icon: '💼',
+    route: '/work'
   },
   {
     id: 'contact',
@@ -69,6 +63,7 @@ export const cardsData = [
     color: '#F39C12',
     gradientEnd: '#E67E22',
     description: 'Get in touch with me! I\'d love to hear from you about collaborations or just to say hello.',
-    icon: '✉️'
+    icon: '✉️',
+    route: '/contact'
   }
 ]

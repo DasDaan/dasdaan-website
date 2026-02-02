@@ -6,12 +6,10 @@
 
 .projects-page {
   min-height: 100vh;
+  height: 100%;
   background: linear-gradient(180deg, rgb(39, 39, 39) 0%, rgb(25, 25, 25) 100%);
-}
-
-.projects-container {
-  max-width: 1400px;
-  margin: 0 auto;
+  width: 100%;
+  flex: 1;
 }
 
 /* Page Header - Matching Homepage Hero Style */
@@ -47,6 +45,8 @@
   grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
   padding: 3rem 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 /* ========================================

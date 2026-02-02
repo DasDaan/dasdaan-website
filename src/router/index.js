@@ -6,6 +6,9 @@ import Cinema from '../pages/cinema/cinema.vue'
 import Gallery from '../pages/gallery/gallery.vue'
 import Photograph from '../pages/gallery/photograph/photograph.vue'
 import Photoshop from '../pages/gallery/photoshop/photoshop.vue'
+import Lab from '../pages/lab/lab.vue'
+import Work from '../pages/work/work.vue'
+import Contact from '../pages/contact/contact.vue'
 
 const router = createRouter({
   history: createWebHistory(),
@@ -46,6 +49,21 @@ const router = createRouter({
       name: 'photoshop',
       component: Photoshop,
       meta: { transition: 'slide-right' }
+    },
+    {
+      path: '/lab',
+      name: 'lab',
+      component: Lab,
+    },
+    {
+      path: '/work',
+      name: 'work',
+      component: Work,
+    },
+    {
+      path: '/contact',
+      name: 'contact',
+      component: Contact,
     }
   ]
 })

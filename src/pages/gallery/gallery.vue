@@ -7,8 +7,8 @@
           <img :src="photographBackground" alt="Photography" class="card-image" />
         </div>
         <div class="card-text-section photograph-text">
-          <div class="card-text-content align-left">
-            <h2 class="card-title">Photograph</h2>
+          <div class="card-text-content align-right">
+            <h2 class="card-title">PHOTOGRAPH</h2>
             <p class="card-description">Capturing moments through the lens</p>
           </div>
           <button class="card-btn btn-left" @click="navigateTo('photograph', 'left')">
@@ -26,8 +26,8 @@
           <img :src="fillerImage" alt="Photoshop" class="card-image" />
         </div>
         <div class="card-text-section photoshop-text">
-          <div class="card-text-content align-right">
-            <h2 class="card-title">Photoshop</h2>
+          <div class="card-text-content align-left">
+            <h2 class="card-title">PHOTOSHOP</h2>
             <p class="card-description">Digital art and creative designs</p>
           </div>
           <button class="card-btn btn-right" @click="navigateTo('photoshop', 'right')">
