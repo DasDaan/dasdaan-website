@@ -115,7 +115,7 @@
     );
 }
 
-/* Hero content - LOWERED */
+/* Hero content */
 .hero-content {
   position: absolute;
   left: 0;
@@ -191,10 +191,6 @@
   margin: 0;
   font-weight: 400;
 }
-
-/* ========================================
-   CONTENT ROWS - BIGGER CARDS
-   ======================================== */
 
 .content-rows {
   padding: 1rem 2.5rem 3rem;
