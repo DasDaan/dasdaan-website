@@ -5,6 +5,8 @@
   background-color: #52505017;
   display: flex;
   flex-direction: column;
+  width: 100vw;
+  overflow-x: hidden;
 }
 
 /* ========================================
@@ -31,8 +33,8 @@
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 80%;
-  height: 80%;
+  width: 60vw;
+  height: 80vh;
   z-index: 1;
 }
 
@@ -41,30 +43,30 @@
   height: 100%;
   object-fit: contain;
   object-position: center;
-  filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.15));
+  filter: drop-shadow(0 1vh 3vh rgba(0, 0, 0, 0.15));
 }
 
 /* Paint Splat Container - Positioned at bottom */
 .splat-container {
   position: absolute;
   z-index: 2;
-  bottom: 8%;
+  bottom: 8vh;
   left: 50%;
   transform: translateX(-50%);
-  width: 90%;
+  width: 80vw;
   max-width: 900px;
 }
 
 .splat-shape {
   position: relative;
-  padding: 2.5rem 4rem;
+  padding: 4vh 5vw;
   background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
   color: #fff;
   border-radius: 80% 75% 85% 70% / 35% 30% 35% 40%;
   box-shadow: 
-    0 25px 50px rgba(0, 0, 0, 0.25),
-    0 10px 20px rgba(0, 0, 0, 0.15),
-    inset 0 -5px 20px rgba(255, 255, 255, 0.05);
+    0 3vh 6vh rgba(0, 0, 0, 0.25),
+    0 1vh 2vh rgba(0, 0, 0, 0.15),
+    inset 0 -0.5vh 2vh rgba(255, 255, 255, 0.05);
   transform: rotate(-1deg);
   transition: transform 0.3s ease;
 }
@@ -84,27 +86,27 @@
 /* Base section label (used by other sections) */
 .section-label {
   display: block;
-  font-size: 0.75rem;
+  font-size: clamp(0.7rem, 1.2vw, 0.9rem);
   font-weight: 500;
   color: #ff5757;
   text-transform: uppercase;
-  letter-spacing: 3px;
-  margin-bottom: 1rem;
+  letter-spacing: 0.2vw;
+  margin-bottom: 2vh;
 }
 
 /* ========================================
    INTRODUCTION SECTION
    ======================================== */
 .intro-section {
-  padding: 6rem 2rem;
+  padding: 10vh 4vw;
   background-color: #1a1a1a;
 }
 
 .intro-content {
-  max-width: 1400px;
+  max-width: 90vw;
   margin: 0 auto;
   opacity: 0;
-  transform: translateY(60px);
+  transform: translateY(6vh);
   transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
               transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -116,15 +118,15 @@
 
 /* About Me Text */
 .about-me-text {
-  margin-bottom: 4rem;
-  max-width: 800px;
+  margin-bottom: 6vh;
+  max-width: 70vw;
   margin-left: auto;
   margin-right: auto;
 }
 
 .about-me-text .section-label {
   color: #ff5757;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2vh;
 }
 
 /* Line by Line Slide Down Animation */
@@ -134,9 +136,9 @@
   font-weight: 400;
   color: rgba(255, 255, 255, 0.9);
   line-height: 1.8;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2.5vh;
   opacity: 0;
-  transform: translateY(-30px);
+  transform: translateY(-3vh);
   transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
@@ -155,23 +157,24 @@
 .bento-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: auto auto;
-  gap: 1.25rem;
+  gap: 1.5vw;
 }
 
 /* Bento Item Base */
 .bento-item {
   background: linear-gradient(145deg, #2a2a2a 0%, #1f1f1f 100%);
   border-radius: 16px;
-  padding: 1.25rem;
+  padding: 2vh 1.5vw;
   border: 1px solid rgba(255, 255, 255, 0.05);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .bento-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+  transform: translateY(-0.5vh);
+  box-shadow: 0 2vh 4vh rgba(0, 0, 0, 0.3);
 }
 
 /* Bento Sizes */
@@ -183,29 +186,29 @@
 .bento-header {
   display: flex;
   align-items: flex-start;
-  gap: 0.75rem;
-  margin-bottom: 1rem;
+  gap: 0.8vw;
+  margin-bottom: 1.5vh;
 }
 
 .bento-icon {
-  font-size: 1.25rem;
+  font-size: clamp(1rem, 2vw, 1.5rem);
 }
 
 .bento-title-group {
   display: flex;
   flex-direction: column;
-  gap: 0.15rem;
+  gap: 0.3vh;
 }
 
 .bento-subtitle {
-  font-size: 0.65rem;
+  font-size: clamp(0.5rem, 0.9vw, 0.7rem);
   color: rgba(255, 255, 255, 0.5);
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 0.1vw;
 }
 
 .bento-title {
-  font-size: 0.9rem;
+  font-size: clamp(0.8rem, 1.2vw, 1.1rem);
   font-weight: 600;
   color: #fff;
 }
@@ -213,13 +216,14 @@
 /* Bento Image Container */
 .bento-image-container {
   width: 100%;
-  height: 150px;
+  height: 15vh;
   border-radius: 10px;
   overflow: hidden;
+  margin-top: auto;
 }
 
 .bento-image-container.small {
-  height: 100px;
+  height: 10vh;
 }
 
 .bento-image {
@@ -232,7 +236,8 @@
 .bento-image-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 0.5rem;
+  gap: 0.5vw;
+  margin-top: auto;
 }
 
 .bento-image-grid.small {
@@ -253,18 +258,19 @@
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 1vh;
+  margin-top: auto;
 }
 
 .todo-item {
-  font-size: 0.85rem;
+  font-size: clamp(0.7rem, 1vw, 0.9rem);
   color: rgba(255, 255, 255, 0.8);
-  padding: 0.5rem 0.75rem;
+  padding: 1vh 1vw;
   background: rgba(255, 255, 255, 0.05);
   border-radius: 6px;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.5vw;
 }
 
 .todo-item::before {
@@ -282,46 +288,20 @@
   color: #4ECDC4;
 }
 
-/* Bento Content Center */
-.bento-content-center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex: 1;
-  min-height: 80px;
-}
-
-.bento-big-text {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #fff;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-}
-
-.bento-number {
-  font-size: 3rem;
-  font-weight: 800;
-  background: linear-gradient(135deg, #ff5757, #ff8585);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
 /* Backstory Section */
 .backstory-section {
-  padding: 4rem 2rem 6rem;
-  max-width: 1500px;
+  padding: 8vh 4vw;
+  max-width: 95vw;
   margin: 0 auto;
   width: 100%;
 }
 
 .backstory-content {
   display: flex;
-  gap: 4rem;
+  gap: 5vw;
   align-items: flex-start;
   opacity: 0;
-  transform: translateY(60px);
+  transform: translateY(6vh);
   transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
               transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -333,10 +313,10 @@
 
 .backstory-image-wrapper {
   flex-shrink: 0;
-  width: 800px;
-  height: 900px;
+  width: 35vw;
+  height: 60vh;
   opacity: 0;
-  transform: translateY(40px);
+  transform: translateY(4vh);
   transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s,
               transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s;
 }
@@ -351,13 +331,13 @@
   height: 100%;
   object-fit: cover;
   border-radius: 12px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2vh 4vh rgba(0, 0, 0, 0.1);
 }
 
 .backstory-text {
   flex: 1;
   opacity: 0;
-  transform: translateY(40px);
+  transform: translateY(4vh);
   transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s,
               transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s;
 }
@@ -373,7 +353,7 @@
   font-weight: 400;
   color: #4a4a4a;
   line-height: 1.8;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2.5vh;
 }
 
 .backstory-paragraph:last-child {
@@ -384,28 +364,28 @@
    INTERESTS SECTION
    ======================================== */
 .interests-section {
-  padding: 6rem 2rem;
+  padding: 10vh 4vw;
   background-color: #1a1a1a;
 }
 
 .interests-container {
-  max-width: 1200px;
+  max-width: 80vw;
   margin: 0 auto;
 }
 
 .interests-title {
   display: block;
   text-align: center;
-  margin-bottom: 4rem;
-  font-size: 0.85rem;
+  margin-bottom: 6vh;
+  font-size: clamp(0.9rem, 1.5vw, 1.2rem);
 }
 
 /* Interest Item */
 .interest-item {
   display: flex;
   align-items: center;
-  gap: 3rem;
-  margin-bottom: 4rem;
+  gap: 4vw;
+  margin-bottom: 8vh;
   overflow: hidden;
 }
 
@@ -415,12 +395,12 @@
 
 /* Image Wrapper */
 .interest-image-wrapper {
-  flex: 0 0 300px;
-  height: 200px;
+  flex: 0 0 25vw;
+  height: 25vh;
   border-radius: 12px;
   overflow: hidden;
   opacity: 0;
-  transform: translateX(-80px);
+  transform: translateX(-5vw);
   transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
               transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -433,8 +413,8 @@
 
 /* Vertical Divider */
 .interest-divider {
-  width: 3px;
-  height: 120px;
+  width: 0.2vw;
+  height: 15vh;
   background: linear-gradient(180deg, #ff5757 0%, #ff8585 100%);
   border-radius: 2px;
   flex-shrink: 0;
@@ -448,22 +428,22 @@
 .interest-text {
   flex: 1;
   opacity: 0;
-  transform: translateX(80px);
+  transform: translateX(5vw);
   transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
               transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .interest-heading {
   font-family: 'Inter', sans-serif;
-  font-size: 1.5rem;
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
   font-weight: 600;
   color: #fff;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5vh;
 }
 
 .interest-paragraph {
   font-family: 'Inter', sans-serif;
-  font-size: 1rem;
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
   font-weight: 400;
   color: rgba(255, 255, 255, 0.75);
   line-height: 1.7;
@@ -490,13 +470,13 @@
    ======================================== */
 
 .contact-cta-section {
-  padding: 8rem 2rem;
+  padding: 15vh 4vw;
   background: linear-gradient(180deg, #1a1a1a 0%, #0f0f0f 100%);
   text-align: center;
 }
 
 .contact-cta-content {
-  max-width: 800px;
+  max-width: 60vw;
   margin: 0 auto;
 }
 
@@ -505,29 +485,29 @@
   font-size: clamp(3rem, 8vw, 6rem);
   font-weight: 600;
   color: #fff;
-  margin-bottom: 1rem;
+  margin-bottom: 2vh;
   letter-spacing: -0.02em;
   line-height: 1.1;
 }
 
 .contact-cta-description {
   font-family: 'Inter', sans-serif;
-  font-size: 1.25rem;
+  font-size: clamp(1rem, 2vw, 1.5rem);
   font-weight: 400;
   color: rgba(255, 255, 255, 0.6);
-  margin-bottom: 3rem;
+  margin-bottom: 5vh;
 }
 
 .contact-cta-button {
   position: relative;
   display: inline-flex;
   align-items: center;
-  gap: 0.75rem;
-  padding: 1rem 2.5rem;
+  gap: 0.8vw;
+  padding: 2vh 4vw;
   background: linear-gradient(135deg, #ff5757 0%, #ff8585 100%);
   color: #fff;
   font-family: 'Inter', sans-serif;
-  font-size: 1rem;
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
   font-weight: 600;
   text-decoration: none;
   border-radius: 50px;
@@ -561,17 +541,17 @@
 }
 
 .contact-cta-button:hover svg {
-  transform: translateX(5px);
+  transform: translateX(0.5vw);
 }
 
 @media (max-width: 1100px) {
   .cutout-image-wrapper {
-    width: 70%;
-    max-width: 550px;
+    width: 60vw;
+    height: 70vh;
   }
 
   .splat-container {
-    max-width: 600px;
+    width: 90vw;
   }
 
   .bento-grid {
@@ -581,47 +561,46 @@
 
 @media (max-width: 900px) {
   .cutout-image-wrapper {
-    width: 80%;
-    height: 70%;
+    width: 80vw;
+    height: 60vh;
   }
 
   .splat-container {
-    bottom: 5%;
-    width: 95%;
+    bottom: 5vh;
+    width: 95vw;
   }
 
   .splat-shape {
-    padding: 2.5rem 2rem;
+    padding: 4vh 4vw;
   }
 
   .backstory-content {
     flex-direction: column;
-    gap: 2rem;
+    gap: 4vh;
   }
 
   .backstory-image-wrapper {
     width: 100%;
-    max-width: 400px;
+    height: 50vh;
   }
 
   .intro-section {
-    padding: 4rem 1.5rem;
+    padding: 8vh 4vw;
   }
 }
 
 @media (max-width: 768px) {
   .section-label {
-    font-size: 0.7rem;
-    letter-spacing: 2px;
+    letter-spacing: 0.2vw;
   }
 
   .backstory-section {
-    padding: 3rem 1.5rem 4rem;
+    padding: 5vh 4vw;
   }
 
   .bento-grid {
     grid-template-columns: 1fr 1fr;
-    gap: 1rem;
+    gap: 2vw;
   }
 
   .bento-wide {
@@ -629,31 +608,31 @@
   }
 
   .about-me-text {
-    margin-bottom: 3rem;
+    margin-bottom: 4vh;
   }
 
   .interest-item {
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 3vh;
     text-align: center;
   }
 
   .interest-image-wrapper {
     flex: none;
     width: 100%;
-    max-width: 350px;
-    height: 180px;
-    transform: translateY(-40px);
+    max-width: 80vw;
+    height: 30vh;
+    transform: translateY(-4vh);
   }
 
   .interest-divider {
-    width: 80px;
-    height: 3px;
+    width: 15vw;
+    height: 0.5vh;
     background: linear-gradient(90deg, #ff5757 0%, #ff8585 100%);
   }
 
   .interest-text {
-    transform: translateY(40px);
+    transform: translateY(4vh);
   }
 
   .interest-item.animate-in .interest-image-wrapper,
@@ -664,24 +643,24 @@
 
 @media (max-width: 480px) {
   .cutout-image-wrapper {
-    width: 95%;
-    height: 60%;
+    width: 95vw;
+    height: 50vh;
   }
 
   .splat-container {
-    bottom: 3%;
+    bottom: 3vh;
   }
 
   .splat-shape {
-    padding: 2rem 1.5rem;
+    padding: 3vh 3vw;
   }
 
   .backstory-section {
-    padding: 2rem 1rem 3rem;
+    padding: 4vh 4vw;
   }
 
   .intro-section {
-    padding: 3rem 1rem;
+    padding: 5vh 4vw;
   }
 
   .bento-grid {
@@ -693,32 +672,26 @@
   }
 
   .bento-item {
-    padding: 1rem;
+    padding: 2vh 3vw;
   }
 
   .interests-section {
-    padding: 4rem 1rem;
+    padding: 6vh 4vw;
   }
 
   .interest-item {
-    margin-bottom: 3rem;
-  }
-
-  .interest-heading {
-    font-size: 1.25rem;
+    margin-bottom: 5vh;
   }
 
   .contact-cta-section {
-    padding: 5rem 1.5rem;
+    padding: 8vh 4vw;
   }
 
   .contact-cta-description {
-    font-size: 1rem;
-    margin-bottom: 2rem;
+    margin-bottom: 4vh;
   }
 
   .contact-cta-button {
-    padding: 0.875rem 2rem;
-    font-size: 0.9rem;
+    padding: 2vh 6vw;
   }
 }
