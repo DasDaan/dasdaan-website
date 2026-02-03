@@ -2,13 +2,14 @@
 
 .home-container {
   min-height: 100vh;
-  overflow: hidden;
+  overflow-x: hidden; /* Changed from overflow: hidden to allow vertical scroll if needed */
+  width: 100vw;
 }
 
 /* Hero section */
 .hero-section {
   text-align: center;
-  padding: 4rem 2rem 3rem;
+  padding: 5vh 4vw 4vh;
   background: rgb(39, 39, 39);
 }
 
@@ -19,7 +20,7 @@
     3px 3px 0 #FF6B6B,
     -3px -3px 0 #4ECDC4;
   animation: glitch 3s infinite;
-  margin-bottom: 1rem;
+  margin-bottom: 2vh;
 }
 
 @keyframes glitch {
@@ -48,7 +49,7 @@
 .tagline {
   font-size: clamp(0.6rem, 2vw, 0.9rem);
   color: rgba(255, 255, 255, 0.7);
-  letter-spacing: 2px;
+  letter-spacing: 0.2vw;
 }
 
 /* Cards section */
@@ -61,12 +62,12 @@
 
 .cards-container {
   display: flex;
-  gap: 2px;
+  gap: 0.2vw; /* Use vw for gap to scale with width */
   justify-content: stretch;
   align-items: stretch;
   flex-wrap: nowrap;
   width: 100%;
-  height: 1000px;
+  height: 80vh; /* Changed from 1000px to viewport height */
 }
 
 /* Card base styles */
@@ -134,8 +135,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 1.5rem;
-  padding: 2rem 1rem;
+  gap: 2vh;
+  padding: 3vh 2vw;
   text-align: center;
   width: 100%;
   height: 100%;
@@ -150,7 +151,7 @@
 }
 
 .card-icon {
-  font-size: 3rem;
+  font-size: clamp(2rem, 5vw, 4rem);
   transition: opacity 0.15s cubic-bezier(0.4, 0, 0.2, 1), transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -158,7 +159,7 @@
 .card:hover .card-icon,
 .card.card-expanded .card-icon {
   opacity: 0;
-  transform: translateY(-20px);
+  transform: translateY(-3vh);
 }
 
 .card-title,
@@ -167,7 +168,7 @@ h2.card-title {
   font-size: clamp(0.6rem, 1.5vw, 0.9rem);
   color: var(--card-color);
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 0.2vw;
   writing-mode: horizontal-tb;
   -webkit-text-stroke: 3px rgba(255, 255, 255, 0.8);
   paint-order: stroke fill;
@@ -180,17 +181,17 @@ h2.card-title {
   -webkit-text-stroke: 0;
   font-size: clamp(1rem, 2vw, 1.5rem);
   text-shadow: 
-    2px 2px 4px rgba(0, 0, 0, 0.9),
-    4px 4px 8px rgba(0, 0, 0, 0.7),
-    6px 6px 12px rgba(0, 0, 0, 0.5);
+    0.2vh 0.2vh 0.4vh rgba(0, 0, 0, 0.9),
+    0.4vh 0.4vh 0.8vh rgba(0, 0, 0, 0.7),
+    0.6vh 0.6vh 1.2vh rgba(0, 0, 0, 0.5);
 }
 
 /* Description - hidden by default, shown on hover */
 .card-description {
   position: absolute;
-  bottom: 2rem;
+  bottom: 4vh;
   left: 50%;
-  transform: translateX(-50%) translateY(10px);
+  transform: translateX(-50%) translateY(1vh);
   color: rgba(255, 255, 255, 0.9);
   font-size: clamp(0.7rem, 1.2vw, 0.9rem);
   line-height: 1.5;
@@ -211,11 +212,12 @@ h2.card-title {
 /* About Section */
 .about-section {
   background: linear-gradient(180deg, rgb(39, 39, 39) 0%, rgb(25, 25, 25) 100%);
-  padding: 5rem 2rem;
+  padding: 8vh 4vw;
 }
 
 .about-content {
-  max-width: 900px;
+  width: 90vw;
+  max-width: 1400px; /* Cap width for very large screens so lines aren't too long */
   margin: 0 auto;
   text-align: center;
 }
@@ -223,7 +225,7 @@ h2.card-title {
 .about-title {
   font-size: clamp(1.5rem, 4vw, 2.5rem);
   color: #fff;
-  margin-bottom: 2rem;
+  margin-bottom: 3vh;
   background: linear-gradient(135deg, #FF6B6B, #4ECDC4, #9B59B6);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -231,8 +233,8 @@ h2.card-title {
 }
 
 .about-text {
-  margin-bottom: 3rem;
-  max-width: 700px;
+  margin-bottom: 5vh;
+  max-width: 60vw;
   margin-left: auto;
   margin-right: auto;
 }
@@ -242,8 +244,8 @@ h2.card-title {
   font-size: clamp(1rem, 2.5vw, 1.2rem);
   color: rgba(255, 255, 255, 0.95);
   line-height: 2;
-  margin-bottom: 1.5rem;
-  letter-spacing: 0.3px;
+  margin-bottom: 2vh;
+  letter-spacing: 0.05vw;
 }
 
 .about-text .highlight {
@@ -254,7 +256,7 @@ h2.card-title {
 .about-stats {
   display: flex;
   justify-content: center;
-  gap: 3rem;
+  gap: 5vw;
   flex-wrap: wrap;
 }
 
@@ -262,7 +264,7 @@ h2.card-title {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 1.5rem 2rem;
+  padding: 2.5vh 3vw;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 12px;
@@ -270,12 +272,12 @@ h2.card-title {
 }
 
 .stat-item:hover {
-  transform: translateY(-5px);
+  transform: translateY(-0.5vh);
   background: rgba(255, 255, 255, 0.1);
 }
 
 .stat-number {
-  font-size: 2.5rem;
+  font-size: clamp(2rem, 5vw, 3rem);
   font-weight: 700;
   background: linear-gradient(135deg, #FF6B6B, #F39C12);
   -webkit-background-clip: text;
@@ -284,11 +286,11 @@ h2.card-title {
 }
 
 .stat-label {
-  font-size: 0.9rem;
+  font-size: clamp(0.7rem, 1.5vw, 1rem);
   color: rgba(255, 255, 255, 0.6);
   text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-top: 0.5rem;
+  letter-spacing: 0.1vw;
+  margin-top: 1vh;
 }
 
 /* Responsive adjustments */
@@ -301,13 +303,17 @@ h2.card-title {
   .card {
     min-width: 45%;
     max-width: none;
-    height: 250px;
+    height: 35vh; /* Responsive height for tablets */
+  }
+
+  .about-text {
+    max-width: 80vw;
   }
 }
 
 @media (max-width: 500px) {
   .home-container {
-    padding: 1rem;
+    padding: 2vw;
   }
   
   .cards-container {
@@ -318,6 +324,18 @@ h2.card-title {
   .card {
     width: 100%;
     min-width: auto;
-    height: 150px;
+    height: 25vh; /* Responsive height for mobile */
+  }
+
+  .about-text {
+    max-width: 90vw;
+  }
+
+  .about-stats {
+    gap: 3vh;
+  }
+  
+  .stat-item {
+    width: 80%;
   }
 }

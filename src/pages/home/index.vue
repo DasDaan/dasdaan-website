@@ -1,7 +1,6 @@
 <template>
   <div class="home-container">
-    <!-- Pixelated background effect -->
-    <div class="pixel-bg"></div>
+
     
     <!-- Header section -->
     <header class="hero-section">
