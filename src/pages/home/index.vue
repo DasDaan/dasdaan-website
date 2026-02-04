@@ -39,7 +39,7 @@
           <div class="card-default">
             <span class="card-icon">{{ card.icon }}</span>
             <h2 class="card-title">{{ card.title }}</h2>
-            <p class="card-description">{{ card.description }}</p>
+            <p class="home-card-description">{{ card.description }}</p>
           </div>
         </div>
       </div>

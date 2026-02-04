@@ -187,13 +187,14 @@ h2.card-title {
 }
 
 /* Description - hidden by default, shown on hover */
-.card-description {
+.home-card-description {
   position: absolute;
   bottom: 4vh;
   left: 50%;
   transform: translateX(-50%) translateY(1vh);
   color: rgba(255, 255, 255, 0.9);
-  font-size: clamp(0.7rem, 1.2vw, 0.9rem);
+  font-family: "Press Start 2P", "Courier New", monospace;
+  font-size: clamp(1rem, 1vw, 0.7rem); /* Adjusted for pixel font readability */
   line-height: 1.5;
   max-width: 90%;
   text-align: center;
@@ -202,8 +203,8 @@ h2.card-title {
   transition: opacity 0.15s cubic-bezier(0.4, 0, 0.2, 1), transform 0.15s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.15s;
 }
 
-.card:hover .card-description,
-.card.card-expanded .card-description {
+.card:hover .home-card-description,
+.card.card-expanded .home-card-description {
   opacity: 1;
   visibility: visible;
   transform: translateX(-50%) translateY(0);
