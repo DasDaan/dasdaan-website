@@ -1,241 +1,413 @@
-/* Courier Prime font available via Google Fonts or generic monospace fallback */
-@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap');
 
-.contact-page {
-  position: relative;
-  width: 100vw;
+/* ========================================
+   Contact Page - Editorial Design
+   ======================================== */
+
+.contact-editorial-wrapper {
   min-height: 100vh;
-  background-color: #1a1a1a;
+  width: 100vw;
+  background: #0a0a0a; /* Deep matte black */
   display: flex;
+  align-items: center;
   justify-content: center;
-  align-items: flex-start;
-  overflow-y: auto;
+  padding: 10vh 4vw;
   overflow-x: hidden;
-  font-family: 'Courier Prime', 'Courier New', monospace;
-  color: #dcdcdc;
-  padding: 5vh 0;
+  position: relative;
 }
 
-/* Film Grain / Noise Overlay */
-.noise-overlay {
-  position: fixed;
+/* Subtle background noise/gradient from the Work page style */
+.contact-editorial-wrapper::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 10% 20%, rgba(255, 107, 107, 0.05) 0%, transparent 40%),
+              radial-gradient(circle at 90% 80%, rgba(78, 205, 196, 0.05) 0%, transparent 40%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.contact-editorial-container {
+  display: flex;
+  width: 100%;
+  max-width: 1400px;
+  min-height: 75vh;
+  position: relative;
+  z-index: 1;
+  background: #111; /* Slightly lighter than pure black */
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.5);
+}
+
+/* ========================================
+   Left Panel: Editorial Content
+   ======================================== */
+.editorial-panel {
+  flex: 1;
+  padding: 8vh 6vw;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-right: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+/* Background decoration line */
+.editorial-bg-decoration {
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  opacity: 0.3;
+  z-index: 0;
   pointer-events: none;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
-  z-index: 100;
-  opacity: 0.08;
 }
 
-.content-container {
+.editorial-content {
   position: relative;
-  width: 60vw; /* Standard script width relative to view */
-  max-width: 1000px;
   z-index: 2;
-  margin-top: 5vh;
-  padding-bottom: 10vh;
 }
 
-/* The "Paper" Container */
-.script-sheet {
-  background-color: transparent;
-  padding: 4vw;
-  position: relative;
-}
-
-/* Script Formatting */
-.scene-header {
-  font-weight: 700;
-  font-size: 1.5vw;
+.editorial-label {
+  display: block;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
   text-transform: uppercase;
-  letter-spacing: 0.1vw;
-  margin-bottom: 3vh;
-  border-bottom: 2px solid #333;
-  padding-bottom: 1vh;
-  display: flex;
-  justify-content: space-between;
+  letter-spacing: 0.2em;
+  color: #ff6b6b;
+  margin-bottom: 2rem;
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards 0.2s;
 }
 
-.scene-number {
-  color: #4ECDC4;
+.editorial-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(3rem, 5vw, 5rem);
+  line-height: 1.1;
+  color: #fff;
+  margin-bottom: 2rem;
+  font-weight: 400;
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards 0.4s;
 }
 
-.action-line {
-  font-size: 1.2vw;
-  line-height: 1.5;
-  margin-bottom: 4vh;
-  color: #bbb;
+.editorial-title em {
+  font-style: italic;
+  font-weight: 400;
+  background: linear-gradient(90deg, #fff, #aaa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.script-form {
+.editorial-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.6);
+  max-width: 400px;
+  margin-bottom: 5rem;
+  font-weight: 300;
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards 0.6s;
+}
+
+.editorial-contact-details {
   display: flex;
   flex-direction: column;
+  gap: 3rem;
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards 0.8s;
 }
 
-.character-cue {
+.detail-item {
   display: flex;
-  justify-content: center;
-  margin-bottom: 0.5vh;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
-.script-input {
-  background: transparent;
-  border: none;
-  font-family: 'Courier Prime', 'Courier New', monospace;
-  color: #fff;
-  outline: none;
-  transition: all 0.3s ease;
-}
-
-.name-input {
-  text-align: center;
-  font-size: 1.2vw;
-  font-weight: 700;
+.detail-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
   text-transform: uppercase;
-  width: 50%;
-  border-bottom: 2px solid transparent;
-  letter-spacing: 0.1vw;
+  color: rgba(255, 255, 255, 0.4);
+  letter-spacing: 0.1em;
 }
 
-.name-input:focus, .name-input:hover {
-  border-bottom: 2px solid #4ECDC4;
-  color: #4ECDC4;
-}
-
-.parenthetical {
-  text-align: center;
-  font-size: 1vw;
-  color: #888;
-  margin-bottom: 1vh;
+.detail-link,
+.social-text-link {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
   font-style: italic;
 }
 
-.dialogue-block {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 4vh;
+.detail-link:hover,
+.social-text-link:hover {
+  color: #4ecdc4;
 }
 
-.dialogue-input {
-  width: 70%; /* Dialogue is centered and narrower */
-  resize: vertical;
-  background: rgba(255, 255, 255, 0.03);
-  padding: 1vw;
-  font-size: 1.1vw;
-  line-height: 1.4;
-  border-radius: 4px;
-  border-left: 3px solid transparent;
-}
-
-.dialogue-input:focus {
-  background: rgba(255, 255, 255, 0.05);
-  border-left: 3px solid #4ECDC4;
-}
-
-.insert-shot {
-  margin: 3vh 0 5vh 0;
-  padding: 2vh 0;
-  border-top: 1px dashed #444;
-  border-bottom: 1px dashed #444;
+.editorial-socials {
   display: flex;
   align-items: center;
-  gap: 1vw;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
-.label {
-  font-weight: 700;
-  font-size: 1.1vw;
-  color: #888;
+.social-text-link {
+  font-size: 1.25rem;
 }
 
-.email-input {
+.separator {
+  color: rgba(255, 255, 255, 0.2);
+}
+
+/* ========================================
+   Right Panel: Form
+   ======================================== */
+.form-panel {
   flex: 1;
-  font-size: 1.1vw;
-  color: #fff;
-  letter-spacing: 0.05vw;
+  background: #141414; /* Slightly darker to differentiate */
+  padding: 8vh 6vw;
+  display: flex;
+  align-items: center;
+  position: relative;
 }
 
-.email-input:focus {
+.editorial-form {
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  position: relative;
+  z-index: 2;
+}
+
+/* Form decoration top line */
+.form-decoration-top {
+  width: 40px;
+  height: 2px;
+  background: #ff6b6b;
+  margin-bottom: 2rem;
+  opacity: 0;
+  animation: expandWidth 0.8s ease forwards 1s;
+}
+
+.input-group {
+  position: relative;
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards;
+}
+
+/* Stagger animations for inputs */
+.input-group:nth-child(2) { animation-delay: 1.2s; }
+.input-group:nth-child(3) { animation-delay: 1.3s; }
+.input-group:nth-child(4) { animation-delay: 1.4s; }
+
+.input-group input,
+.input-group textarea {
+  width: 100%;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-size: 1.1rem;
+  padding: 1rem 0;
+  outline: none;
+  resize: none;
+}
+
+.input-group label {
+  position: absolute;
+  top: 1rem;
+  left: 0;
+  font-family: 'Inter', sans-serif;
+  color: rgba(255, 255, 255, 0.4);
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  font-size: 1rem;
+}
+
+.input-border {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.input-border::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: #4ecdc4;
+  transition: width 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+/* Input Focus States */
+.input-group input:focus + label,
+.input-group textarea:focus + label,
+.input-group.has-content label {
+  top: -12px;
+  font-size: 0.75rem;
+  color: #4ecdc4;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.input-group input:focus ~ .input-border::after,
+.input-group textarea:focus ~ .input-border::after {
+  width: 100%;
+}
+
+/* Submit Button Fancy */
+.submit-btn-fancy {
+  align-self: flex-start;
+  background: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  cursor: pointer;
+  padding: 1rem 0;
+  group: hover;
+  position: relative;
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards 1.6s;
+}
+
+.btn-text {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem;
+  color: #fff;
+  transition: color 0.3s ease;
+}
+
+.btn-line {
+  width: 40px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.btn-icon {
+  color: #fff;
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.submit-btn-fancy:hover .btn-text {
   color: #ff6b6b;
 }
 
-.transition-to {
-  display: flex;
-  justify-content: flex-end;
-  margin-top: 2vh;
+.submit-btn-fancy:hover .btn-line {
+  background: #ff6b6b;
+  width: 80px;
 }
 
-.cut-to-button {
-  background: transparent;
-  border: none;
-  font-family: 'Courier Prime', 'Courier New', monospace;
-  font-size: 1.2vw;
-  font-weight: 700;
-  color: #fff;
-  cursor: pointer;
-  text-transform: uppercase;
-  text-decoration: underline;
-  text-decoration-thickness: 2px;
-  text-underline-offset: 4px;
-  transition: all 0.3s;
+.submit-btn-fancy:hover .btn-icon {
+  transform: translateX(10px);
+  color: #ff6b6b;
 }
 
-.cut-to-button:hover {
-  color: #FF6B6B;
-  text-decoration-color: #FF6B6B;
-  transform: scale(1.05);
+/* Sending State */
+.submit-btn-fancy.sending {
+  pointer-events: none;
+  opacity: 0.7;
 }
 
-/* Social Footer as simple text at bottom */
-.social-footer {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  display: flex;
-  gap: 2vw;
-  padding: 2vw;
+.submit-btn-fancy.sent .btn-text {
+  color: #4ecdc4;
 }
 
-.social-link {
-  font-size: 1vw;
-  color: #555;
-  text-decoration: none;
-  font-weight: 700;
+.submit-btn-fancy.sent .btn-line {
+  background: #4ecdc4;
 }
 
-.social-link:hover {
-  color: #fff;
+.submit-btn-fancy.sent .btn-icon {
+  color: #4ecdc4;
 }
 
-/* Responsive Handling */
-@media (max-width: 768px) {
-  .content-container {
-    width: 90vw;
+/* ========================================
+   Animations
+   ======================================== */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes expandWidth {
+  from { width: 0; }
+  to { width: 40px; }
+}
+
+/* ========================================
+   Responsive Styling
+   ======================================== */
+@media (max-width: 1024px) {
+  .contact-editorial-container {
+    flex-direction: column;
+    min-height: auto;
   }
   
-  .scene-header {
-    font-size: 4vw;
+  .editorial-panel {
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    padding: 6rem 8vw 4rem;
   }
   
-  .action-line {
-    font-size: 3.5vw;
+  .form-panel {
+    padding: 4rem 8vw 6rem;
   }
   
-  .name-input, .dialogue-input, .parenthetical, .label, .email-input {
-    font-size: 3.5vw;
-  }
-  
-  .cut-to-button {
-    font-size: 4vw;
-  }
-
-  .dialogue-input {
-    width: 90%;
-  }
-
-  .social-link {
-    font-size: 3vw;
+  .editorial-title {
+    font-size: 3.5rem;
   }
 }
+
+@media (max-width: 600px) {
+  .contact-editorial-wrapper {
+    padding: 0;
+  }
+  
+  .editorial-panel, .form-panel {
+    padding: 3rem 6vw;
+  }
+  
+  .editorial-title {
+    font-size: 2.8rem;
+  }
+  
+  .editorial-form {
+    gap: 2rem;
+  }
+  
+  .editorial-socials {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .separator {
+    display: none;
+  }
+}
+
