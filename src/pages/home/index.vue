@@ -15,9 +15,9 @@
           'card-expanded': hoveredCard === card.id,
           'card-collapsed': hoveredCard !== null && hoveredCard !== card.id
         }" :style="{
-            '--card-color': card.color,
-            '--card-gradient-end': card.gradientEnd
-          }" @mouseenter="hoveredCard = card.id" @mouseleave="hoveredCard = null" @click="handleCardClick(card)">
+          '--card-color': card.color,
+          '--card-gradient-end': card.gradientEnd
+        }" @mouseenter="hoveredCard = card.id" @mouseleave="hoveredCard = null" @click="handleCardClick(card)">
           <!-- Background image layer -->
           <div v-if="card.backgroundImage" class="card-bg-image"
             :style="{ backgroundImage: `url(${card.backgroundImage})` }"></div>
@@ -35,32 +35,12 @@
     <!-- About section -->
     <section class="about-section">
       <div class="about-content">
-        <h2 class="about-title">Welcome to My Creative Space</h2>
+        <h2 class="about-title">Hello!</h2>
         <div class="about-text">
           <p>
-            Hey there! I'm <span class="highlight">Daan</span>, a passionate creative developer and designer
-            who loves bringing ideas to life through code and design. This site is my showcase of projects, experiments,
-            and creative explorations I made.
+            Welcome to my creative space. This page is a collection of my projects, experiments, and ideas.
+            Feel free to look around and explore the cards above to see what I've been building!
           </p>
-          <p>
-            From interactive development to video production, photography to experimental coding projects.
-            I'm always exploring new ways to create. Feel free to explore the different
-            sections above to discover what I've been working on!
-          </p>
-        </div>
-        <div class="about-stats">
-          <div class="stat-item">
-            <span class="stat-number">8</span>
-            <span class="stat-label">Categories</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-number">∞</span>
-            <span class="stat-label">Ideas</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-number">1</span>
-            <span class="stat-label">Passion</span>
-          </div>
         </div>
       </div>
     </section>
