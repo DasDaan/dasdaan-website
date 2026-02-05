@@ -150,17 +150,7 @@
   background: transparent;
 }
 
-.card-icon {
-  font-size: clamp(2rem, 5vw, 4rem);
-  transition: opacity 0.15s cubic-bezier(0.4, 0, 0.2, 1), transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
-}
 
-/* Hide and move icon on hover */
-.card:hover .card-icon,
-.card.card-expanded .card-icon {
-  opacity: 0;
-  transform: translateY(-3vh);
-}
 
 .card-title,
 h2.card-title {
@@ -179,7 +169,7 @@ h2.card-title {
 .card.card-expanded .card-title {
   color: #fff;
   -webkit-text-stroke: 0;
-  font-size: clamp(1rem, 2vw, 1.5rem);
+  font-size: 1.3vw;
   text-shadow: 
     0.2vh 0.2vh 0.4vh rgba(0, 0, 0, 0.9),
     0.4vh 0.4vh 0.8vh rgba(0, 0, 0, 0.7),
@@ -194,9 +184,9 @@ h2.card-title {
   transform: translateX(-50%) translateY(1vh);
   color: rgba(255, 255, 255, 0.9);
   font-family: "Press Start 2P", "Courier New", monospace;
-  font-size: clamp(1rem, 1vw, 0.7rem); /* Adjusted for pixel font readability */
+  font-size: 0.7vw; /* Adjusted to percentage based view */
   line-height: 1.5;
-  max-width: 90%;
+  max-width: 100%;
   text-align: center;
   opacity: 0;
   visibility: hidden;

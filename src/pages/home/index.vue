@@ -1,7 +1,7 @@
 <template>
   <div class="home-container">
 
-    
+
     <!-- Header section -->
     <header class="hero-section">
       <h1 class="glitch-text" data-text="DasDaan">DasDaan</h1>
@@ -11,33 +11,20 @@
     <!-- Cards section -->
     <section class="cards-section">
       <div class="cards-container">
-        <div
-          v-for="card in cards"
-          :key="card.id"
-          class="card"
-          :data-card-id="card.id"
-          :class="{ 
-            'card-expanded': hoveredCard === card.id,
-            'card-collapsed': hoveredCard !== null && hoveredCard !== card.id 
-          }"
-          :style="{
+        <div v-for="card in cards" :key="card.id" class="card" :data-card-id="card.id" :class="{
+          'card-expanded': hoveredCard === card.id,
+          'card-collapsed': hoveredCard !== null && hoveredCard !== card.id
+        }" :style="{
             '--card-color': card.color,
             '--card-gradient-end': card.gradientEnd
-          }"
-          @mouseenter="hoveredCard = card.id"
-          @mouseleave="hoveredCard = null"
-          @click="handleCardClick(card)"
-        >
+          }" @mouseenter="hoveredCard = card.id" @mouseleave="hoveredCard = null" @click="handleCardClick(card)">
           <!-- Background image layer -->
-          <div 
-            v-if="card.backgroundImage" 
-            class="card-bg-image"
-            :style="{ backgroundImage: `url(${card.backgroundImage})` }"
-          ></div>
-          
+          <div v-if="card.backgroundImage" class="card-bg-image"
+            :style="{ backgroundImage: `url(${card.backgroundImage})` }"></div>
+
           <!-- Card content -->
           <div class="card-default">
-            <span class="card-icon">{{ card.icon }}</span>
+
             <h2 class="card-title">{{ card.title }}</h2>
             <p class="home-card-description">{{ card.description }}</p>
           </div>
@@ -51,12 +38,13 @@
         <h2 class="about-title">Welcome to My Creative Space</h2>
         <div class="about-text">
           <p>
-            Hey there! I'm <span class="highlight">Daan</span>, a passionate creative developer and designer 
-            who loves bringing ideas to life through code and design. This site is my showcase of projects, experiments, and creative explorations I made.
+            Hey there! I'm <span class="highlight">Daan</span>, a passionate creative developer and designer
+            who loves bringing ideas to life through code and design. This site is my showcase of projects, experiments,
+            and creative explorations I made.
           </p>
           <p>
-            From interactive development to video production, photography to experimental coding projects. 
-            I'm always exploring new ways to create. Feel free to explore the different 
+            From interactive development to video production, photography to experimental coding projects.
+            I'm always exploring new ways to create. Feel free to explore the different
             sections above to discover what I've been working on!
           </p>
         </div>
