@@ -101,6 +101,7 @@
   font-weight: 400;
   background: linear-gradient(90deg, #fff, #aaa);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -282,7 +283,6 @@
   gap: 1.5rem;
   cursor: pointer;
   padding: 1rem 0;
-  group: hover;
   position: relative;
   opacity: 0;
   animation: fadeUp 0.8s ease forwards 1.6s;
