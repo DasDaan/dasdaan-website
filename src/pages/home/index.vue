@@ -38,8 +38,8 @@
         <h2 class="about-title">Hello!</h2>
         <div class="about-text">
           <p>
-            Welcome to my creative space. This page is a collection of my projects, experiments, and ideas.
-            Feel free to look around and explore the cards above to see what I've been building!
+            Welcome to my creative webspace. This website is a collection of my projects, experiments, and ideas.
+            Feel free to look around and explore the cards above to see what I've been up to.
           </p>
         </div>
       </div>

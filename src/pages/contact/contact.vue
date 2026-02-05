@@ -8,8 +8,9 @@
           <span class="editorial-label">Contact</span>
           <h1 class="editorial-title">Let's start a <br><em>conversation</em></h1>
           <p class="editorial-subtitle">
-            Have a project in mind? We'd love to hear about it.
-            Send us a message and we'll get back to you as soon as possible.
+            Have a project in mind? Interested in working together? Or just want to say hello?
+            <br>
+            Send me a message and I'll get back to you as soon as possible.
           </p>
           
           <div class="editorial-contact-details">
@@ -22,9 +23,9 @@
               <div class="editorial-socials">
                 <a href="#" class="social-text-link">LinkedIn</a>
                 <span class="separator">•</span>
-                <a href="#" class="social-text-link">GitHub</a>
-                <span class="separator">•</span>
                 <a href="#" class="social-text-link">Instagram</a>
+                <span class="separator">•</span>
+                <a href="#" class="social-text-link">GitHub</a>
               </div>
             </div>
           </div>
