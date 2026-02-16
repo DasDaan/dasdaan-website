@@ -6,6 +6,7 @@
 .work-page {
   min-height: 100vh;
   background: linear-gradient(180deg, #0f0f0f 0%, #1a1a1a 50%, #0f0f0f 100%);
+  font-family: 'Inter', sans-serif;
 }
 
 /* ========================================
@@ -29,7 +30,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: 
+  background:
     radial-gradient(ellipse 80% 50% at 50% 0%, rgba(255, 87, 87, 0.08) 0%, transparent 50%),
     radial-gradient(ellipse 60% 40% at 80% 80%, rgba(78, 205, 196, 0.06) 0%, transparent 50%);
   pointer-events: none;
@@ -66,7 +67,6 @@
 }
 
 .hero-subtitle {
-  font-family: 'Inter', sans-serif;
   font-size: clamp(1rem, 2vw, 1.25rem);
   font-weight: 400;
   color: rgba(255, 255, 255, 0.6);
@@ -83,7 +83,6 @@
   padding: 1rem 2.5rem;
   background: linear-gradient(135deg, #ff5757 0%, #ff8585 100%);
   color: #fff;
-  font-family: 'Inter', sans-serif;
   font-size: 1rem;
   font-weight: 600;
   border: none;
@@ -125,34 +124,18 @@
 }
 
 @keyframes bounceDown {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(5px);
-  }
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(5px); }
 }
 
 @keyframes fadeInDown {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* ========================================
@@ -167,10 +150,12 @@
   position: relative;
   max-width: 1000px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 2rem 20px;
 }
 
-/* Vertical Timeline Line */
+/* ========================================
+   CENTRAL TIMELINE LINE
+   ======================================== */
 .timeline-line {
   position: absolute;
   left: 50%;
@@ -178,11 +163,13 @@
   bottom: 0;
   width: 3px;
   background: linear-gradient(
-    180deg, 
+    180deg,
     rgba(255, 87, 87, 0.1) 0%,
-    rgba(255, 87, 87, 0.4) 10%,
-    rgba(255, 87, 87, 0.4) 90%,
-    rgba(78, 205, 196, 0.6) 100%
+    rgba(255, 87, 87, 0.3) 5%,
+    rgba(255, 255, 255, 0.08) 30%,
+    rgba(255, 255, 255, 0.08) 70%,
+    rgba(78, 205, 196, 0.3) 95%,
+    rgba(78, 205, 196, 0.1) 100%
   );
   transform: translateX(-50%);
   border-radius: 2px;
@@ -191,182 +178,382 @@
 .timeline-line::before {
   content: '';
   position: absolute;
-  top: 0;
+  top: -6px;
   left: 50%;
   transform: translateX(-50%);
-  width: 12px;
-  height: 12px;
+  width: 14px;
+  height: 14px;
   background: #ff5757;
   border-radius: 50%;
   box-shadow: 0 0 20px rgba(255, 87, 87, 0.5);
 }
 
 /* ========================================
-   TIMELINE ITEMS
+   YEAR MARKERS
    ======================================== */
-.timeline-item {
+.year-marker {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding: 1.25rem 0;
+  z-index: 5;
+  opacity: 0;
+  transform: scale(0.85);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.year-marker.animate-in {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.year-label {
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.45);
+  background: #171717;
+  padding: 0.45rem 1.2rem;
+  border-radius: 100px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  letter-spacing: 2px;
+  position: relative;
+  z-index: 6;
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.year-marker:hover .year-label {
+  color: rgba(255, 255, 255, 0.7);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Subtle tick lines from year markers */
+.year-marker::before,
+.year-marker::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  height: 1px;
+  width: 100px;
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.05) 50%, transparent 100%);
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.year-marker::before { right: calc(50% + 42px); }
+.year-marker::after { left: calc(50% + 42px); }
+
+/* ========================================
+   TIMELINE EVENTS
+   ======================================== */
+.timeline-event {
   position: relative;
   width: 50%;
-  padding: 2rem 0;
+  padding: 1rem 0;
+  z-index: 3;
   opacity: 0;
   transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
               transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.timeline-item.left {
-  padding-right: 4rem;
+.timeline-event.left {
+  margin-right: auto;
+  padding-right: 3rem;
   text-align: right;
-  transform: translateX(-60px);
+  transform: translateX(-50px);
 }
 
-.timeline-item.right {
-  margin-left: 50%;
-  padding-left: 4rem;
-  transform: translateX(60px);
+.timeline-event.right {
+  margin-left: auto;
+  padding-left: 3rem;
+  transform: translateX(50px);
 }
 
-.timeline-item.animate-in {
+.timeline-event.animate-in {
   opacity: 1;
   transform: translateX(0);
 }
 
-/* Timeline Dot */
-.timeline-dot {
+/* ========================================
+   EVENT DOT — sits ON the timeline line
+   ======================================== */
+.event-dot {
   position: absolute;
-  top: 3rem;
-  width: 20px;
-  height: 20px;
-  background: #1a1a1a;
-  border: 3px solid #ff5757;
+  top: 1.75rem;
+  width: 24px;
+  height: 24px;
+  background: #171717;
+  border: 3px solid;
   border-radius: 50%;
-  z-index: 2;
+  z-index: 5;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.timeline-item.left .timeline-dot {
-  right: -10px;
+/* Centered on the timeline (event edge = 50% of container) */
+.timeline-event.left .event-dot { right: -12px; }
+.timeline-event.right .event-dot { left: -12px; }
+
+/* START dot: filled background for emphasis */
+.dot-start.dot-seasonal { border-color: #4ECDC4; background: radial-gradient(circle, rgba(78, 205, 196, 0.2) 0%, #171717 70%); }
+.dot-start.dot-parttime { border-color: #ff5757; background: radial-gradient(circle, rgba(255, 87, 87, 0.2) 0%, #171717 70%); }
+.dot-start.dot-internship { border-color: #a78bfa; background: radial-gradient(circle, rgba(167, 139, 250, 0.2) 0%, #171717 70%); }
+
+/* END dot: smaller, outline only */
+.dot-end {
+  width: 22px;
+  height: 22px;
 }
 
-.timeline-item.right .timeline-dot {
-  left: -10px;
-}
+.timeline-event.left .dot-end { right: -11px; }
+.timeline-event.right .dot-end { left: -11px; }
 
+.dot-end.dot-seasonal { border-color: rgba(78, 205, 196, 0.5); }
+.dot-end.dot-parttime { border-color: rgba(255, 87, 87, 0.5); }
+.dot-end.dot-internship { border-color: rgba(167, 139, 250, 0.5); }
+
+/* Dot icon */
 .dot-inner {
-  width: 8px;
-  height: 8px;
-  background: #ff5757;
-  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   opacity: 0;
   transform: scale(0);
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  transition: opacity 0.3s ease 0.3s, transform 0.3s ease 0.3s;
 }
 
-.timeline-item.animate-in .dot-inner {
+.timeline-event.animate-in .dot-inner {
   opacity: 1;
   transform: scale(1);
-  transition-delay: 0.4s;
 }
 
-.timeline-item:hover .timeline-dot {
-  transform: scale(1.2);
-  box-shadow: 0 0 20px rgba(255, 87, 87, 0.4);
-}
+.dot-seasonal .dot-inner svg { color: #4ECDC4; }
+.dot-parttime .dot-inner svg { color: #ff5757; }
+.dot-internship .dot-inner svg { color: #a78bfa; }
+.dot-end .dot-inner svg { opacity: 0.6; }
+
+/* Hover glow — start dots */
+.timeline-event:hover .dot-start.dot-seasonal { box-shadow: 0 0 18px rgba(78, 205, 196, 0.6); transform: scale(1.2); }
+.timeline-event:hover .dot-start.dot-parttime { box-shadow: 0 0 18px rgba(255, 87, 87, 0.6); transform: scale(1.2); }
+.timeline-event:hover .dot-start.dot-internship { box-shadow: 0 0 18px rgba(167, 139, 250, 0.6); transform: scale(1.2); }
+
+/* Hover glow — end dots (subtler) */
+.timeline-event:hover .dot-end.dot-seasonal { box-shadow: 0 0 12px rgba(78, 205, 196, 0.3); transform: scale(1.1); }
+.timeline-event:hover .dot-end.dot-parttime { box-shadow: 0 0 12px rgba(255, 87, 87, 0.3); transform: scale(1.1); }
+.timeline-event:hover .dot-end.dot-internship { box-shadow: 0 0 12px rgba(167, 139, 250, 0.3); transform: scale(1.1); }
 
 /* ========================================
-   TIMELINE CARD
+   CONNECTOR LINE — dot to card
    ======================================== */
-.timeline-card {
-  background: linear-gradient(145deg, #2a2a2a 0%, #1f1f1f 100%);
-  border-radius: 16px;
-  padding: 2rem;
+.connector {
+  position: absolute;
+  top: 50%;
+  height: 2px;
+  width: 24px;
+  transform: translateY(-50%);
+  border-radius: 1px;
+}
+
+.timeline-event.left .connector { right: 100%; }
+.timeline-event.right .connector { left: 100%; }
+
+/* Connector colors — gradient bright toward dot */
+.conn-seasonal { background: linear-gradient(90deg, rgba(78, 205, 196, 0.15), rgba(78, 205, 196, 0.5)); }
+.conn-parttime { background: linear-gradient(90deg, rgba(255, 87, 87, 0.15), rgba(255, 87, 87, 0.5)); }
+.conn-internship { background: linear-gradient(90deg, rgba(167, 139, 250, 0.15), rgba(167, 139, 250, 0.5)); }
+
+/* Reverse gradient for left events */
+.timeline-event.left .conn-seasonal { background: linear-gradient(90deg, rgba(78, 205, 196, 0.5), rgba(78, 205, 196, 0.15)); }
+.timeline-event.left .conn-parttime { background: linear-gradient(90deg, rgba(255, 87, 87, 0.5), rgba(255, 87, 87, 0.15)); }
+.timeline-event.left .conn-internship { background: linear-gradient(90deg, rgba(167, 139, 250, 0.5), rgba(167, 139, 250, 0.15)); }
+
+/* Brighten on hover */
+.timeline-event:hover .conn-seasonal { background: #4ECDC4; opacity: 0.6; }
+.timeline-event:hover .conn-parttime { background: #ff5757; opacity: 0.6; }
+.timeline-event:hover .conn-internship { background: #a78bfa; opacity: 0.6; }
+
+/* ========================================
+   EVENT CARD (shared)
+   ======================================== */
+.event-card {
+  background: linear-gradient(145deg, #242424 0%, #1c1c1c 100%);
+  border-radius: 14px;
+  padding: 1.5rem 1.75rem;
   border: 1px solid rgba(255, 255, 255, 0.05);
   position: relative;
   overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
-.timeline-card::before {
+/* Accent top line (hover reveal) */
+.event-card::before {
   content: '';
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, #ff5757, #ff8585, #4ECDC4);
+  height: 2px;
   opacity: 0;
   transition: opacity 0.3s ease;
 }
 
-.timeline-item:hover .timeline-card {
-  transform: translateY(-5px);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+.card-seasonal::before { background: linear-gradient(90deg, #4ECDC4, #2d9e97); }
+.card-parttime::before { background: linear-gradient(90deg, #ff5757, #ff8585); }
+.card-internship::before { background: linear-gradient(90deg, #a78bfa, #c4b5fd); }
+
+.timeline-event:hover .event-card {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
 }
 
-.timeline-item:hover .timeline-card::before {
-  opacity: 1;
+.timeline-event:hover .event-card::before { opacity: 1; }
+
+/* Pair highlight */
+.event-card.pair-highlight {
+  border-color: rgba(255, 255, 255, 0.1);
 }
 
-/* Card Header */
-.card-header {
+.event-card.pair-highlight::before { opacity: 0.5; }
+
+/* ========================================
+   START CARD — color-coded side border
+   ======================================== */
+.timeline-event.right .start-card.card-seasonal { border-left: 3px solid rgba(78, 205, 196, 0.35); }
+.timeline-event.right .start-card.card-parttime { border-left: 3px solid rgba(255, 87, 87, 0.35); }
+.timeline-event.right .start-card.card-internship { border-left: 3px solid rgba(167, 139, 250, 0.35); }
+
+.timeline-event.left .start-card.card-seasonal { border-right: 3px solid rgba(78, 205, 196, 0.35); }
+.timeline-event.left .start-card.card-parttime { border-right: 3px solid rgba(255, 87, 87, 0.35); }
+.timeline-event.left .start-card.card-internship { border-right: 3px solid rgba(167, 139, 250, 0.35); }
+
+.timeline-event:hover .start-card.card-seasonal { border-color: rgba(78, 205, 196, 0.7); }
+.timeline-event:hover .start-card.card-parttime { border-color: rgba(255, 87, 87, 0.7); }
+.timeline-event:hover .start-card.card-internship { border-color: rgba(167, 139, 250, 0.7); }
+
+/* ========================================
+   END CARD — muted, dashed border
+   ======================================== */
+.end-card {
+  padding: 1.1rem 1.5rem;
+  background: linear-gradient(145deg, #212121 0%, #1a1a1a 100%);
+  border: 1px dashed rgba(255, 255, 255, 0.06);
+}
+
+.timeline-event.right .end-card.card-seasonal { border-left: 2px dashed rgba(78, 205, 196, 0.25); }
+.timeline-event.right .end-card.card-parttime { border-left: 2px dashed rgba(255, 87, 87, 0.25); }
+.timeline-event.right .end-card.card-internship { border-left: 2px dashed rgba(167, 139, 250, 0.25); }
+
+.timeline-event.left .end-card.card-seasonal { border-right: 2px dashed rgba(78, 205, 196, 0.25); }
+.timeline-event.left .end-card.card-parttime { border-right: 2px dashed rgba(255, 87, 87, 0.25); }
+.timeline-event.left .end-card.card-internship { border-right: 2px dashed rgba(167, 139, 250, 0.25); }
+
+.timeline-event:hover .end-card.card-seasonal { border-color: rgba(78, 205, 196, 0.45); }
+.timeline-event:hover .end-card.card-parttime { border-color: rgba(255, 87, 87, 0.45); }
+.timeline-event:hover .end-card.card-internship { border-color: rgba(167, 139, 250, 0.45); }
+
+/* ========================================
+   CARD META
+   ======================================== */
+.card-meta {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  margin-bottom: 1rem;
+  gap: 0.6rem;
+  margin-bottom: 0.85rem;
   flex-wrap: wrap;
 }
 
-.timeline-item.left .card-header {
-  justify-content: flex-end;
-}
+.timeline-event.left .card-meta { justify-content: flex-end; }
 
-.timeline-date {
-  font-family: 'Inter', sans-serif;
+.event-month {
   font-size: 0.85rem;
-  font-weight: 600;
-  color: #ff5757;
-  letter-spacing: 0.5px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.8);
+  letter-spacing: 0.3px;
 }
 
-.timeline-type {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.7rem;
+/* Badges */
+.event-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  padding: 0.25rem 0.6rem;
+  border-radius: 5px;
+}
+
+.badge-started {
+  font-size: 0.65rem;
+  padding: 0.3rem 0.7rem;
+}
+
+.badge-started.badge-seasonal { background: rgba(78, 205, 196, 0.15); color: #4ECDC4; }
+.badge-started.badge-parttime { background: rgba(255, 87, 87, 0.15); color: #ff5757; }
+.badge-started.badge-internship { background: rgba(167, 139, 250, 0.15); color: #a78bfa; }
+
+.badge-completed {
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 0.55rem;
+}
+
+.event-type-tag {
+  font-size: 0.55rem;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.5);
   text-transform: uppercase;
   letter-spacing: 1px;
-  padding: 0.25rem 0.75rem;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 20px;
+  color: rgba(255, 255, 255, 0.25);
+  padding: 0.2rem 0.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 5px;
 }
 
-/* Card Content */
-.timeline-role {
-  font-family: 'Inter', sans-serif;
-  font-size: 1.5rem;
+/* ========================================
+   CARD CONTENT
+   ======================================== */
+.card-role {
+  font-size: 1.3rem;
   font-weight: 700;
   color: #fff;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.2rem;
   line-height: 1.3;
 }
 
-.timeline-company {
-  font-family: 'Inter', sans-serif;
-  font-size: 1rem;
+.card-company {
+  font-size: 0.88rem;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.6);
-  margin-bottom: 1rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 0.85rem;
 }
 
-.timeline-description {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.95rem;
+.card-description {
+  font-size: 0.88rem;
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.55);
   line-height: 1.7;
 }
+
+/* ========================================
+   END CARD CONTENT
+   ======================================== */
+.end-card .card-meta { margin-bottom: 0.5rem; }
+
+.end-card-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.timeline-event.left .end-card-info { justify-content: flex-end; }
+
+.end-role { font-size: 0.85rem; font-weight: 600; color: rgba(255, 255, 255, 0.6); }
+.end-company { font-size: 0.8rem; font-weight: 400; color: rgba(255, 255, 255, 0.35); }
+.end-duration { font-size: 0.75rem; font-weight: 500; color: rgba(255, 255, 255, 0.25); }
+.end-sep { color: rgba(255, 255, 255, 0.12); font-size: 0.8rem; }
 
 /* ========================================
    JOURNEY START MARKER
@@ -375,7 +562,8 @@
   position: relative;
   display: flex;
   justify-content: center;
-  padding-top: 4rem;
+  padding-top: 3rem;
+  z-index: 5;
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
@@ -389,7 +577,6 @@
 
 .start-marker {
   display: flex;
-  flex-direction: row;
   align-items: center;
   gap: 1rem;
   padding: 1rem 2.5rem;
@@ -404,12 +591,12 @@
 .start-marker::before {
   content: '';
   position: absolute;
-  top: -40px;
+  top: -30px;
   left: 50%;
   transform: translateX(-50%);
   width: 2px;
-  height: 40px;
-  background: linear-gradient(180deg, rgba(78, 205, 196, 0.6) 0%, rgba(255, 255, 255, 0.05) 100%);
+  height: 30px;
+  background: linear-gradient(180deg, rgba(78, 205, 196, 0.5) 0%, rgba(255, 255, 255, 0.03) 100%);
 }
 
 .start-marker svg {
@@ -419,12 +606,9 @@
   transition: transform 0.3s ease;
 }
 
-.start-marker:hover svg {
-  transform: scale(1.1) rotate(10deg);
-}
+.start-marker:hover svg { transform: scale(1.1) rotate(10deg); }
 
 .start-marker span {
-  font-family: 'Inter', sans-serif;
   font-size: 0.85rem;
   font-weight: 600;
   color: rgba(255, 255, 255, 0.8);
@@ -433,118 +617,143 @@
   transition: color 0.3s ease;
 }
 
-.start-marker:hover span {
-  color: #4ECDC4;
-}
+.start-marker:hover span { color: #4ECDC4; }
 
 /* ========================================
-   RESPONSIVE DESIGN
+   RESPONSIVE — TABLET (single-column)
    ======================================== */
 @media (max-width: 900px) {
-  .timeline-line {
-    left: 30px;
+  .timeline-line { left: 30px; }
+
+  .year-marker {
+    justify-content: flex-start;
+    padding-left: 0;
   }
 
-  .timeline-item {
+  .year-label { margin-left: 10px; }
+
+  .year-marker::before { display: none; }
+  .year-marker::after { left: 76px; width: 50px; }
+
+  .timeline-event {
     width: 100%;
-    padding-left: 70px !important;
+    padding-left: 60px !important;
     padding-right: 0 !important;
     text-align: left !important;
   }
 
-  .timeline-item.left,
-  .timeline-item.right {
-    margin-left: 0;
-    transform: translateX(60px);
-  }
+  .timeline-event.left { transform: translateX(50px); }
 
-  .timeline-item.left .timeline-dot,
-  .timeline-item.right .timeline-dot {
-    left: 20px;
+  /* All dots on the left side of the timeline */
+  .timeline-event.left .event-dot,
+  .timeline-event.right .event-dot {
+    left: 19px;
     right: auto;
   }
 
-  .timeline-item.left .card-header,
-  .timeline-item.left .timeline-skills {
+  .timeline-event.left .dot-end,
+  .timeline-event.right .dot-end {
+    left: 19px;
+  }
+
+  .timeline-event.left .card-meta,
+  .timeline-event.left .end-card-info {
     justify-content: flex-start;
   }
+
+  /* All connectors go right toward cards */
+  .timeline-event.left .connector,
+  .timeline-event.right .connector {
+    left: 100%;
+    right: auto;
+    width: 14px;
+  }
+
+  /* Unified connector gradient direction */
+  .timeline-event.left .conn-seasonal,
+  .timeline-event.right .conn-seasonal {
+    background: linear-gradient(90deg, rgba(78, 205, 196, 0.5), rgba(78, 205, 196, 0.15));
+  }
+  .timeline-event.left .conn-parttime,
+  .timeline-event.right .conn-parttime {
+    background: linear-gradient(90deg, rgba(255, 87, 87, 0.5), rgba(255, 87, 87, 0.15));
+  }
+  .timeline-event.left .conn-internship,
+  .timeline-event.right .conn-internship {
+    background: linear-gradient(90deg, rgba(167, 139, 250, 0.5), rgba(167, 139, 250, 0.15));
+  }
+
+  /* All borders on left side */
+  .timeline-event.left .start-card.card-seasonal,
+  .timeline-event.left .start-card.card-parttime,
+  .timeline-event.left .start-card.card-internship {
+    border-right: none !important;
+  }
+  .timeline-event.left .start-card.card-seasonal { border-left: 3px solid rgba(78, 205, 196, 0.35); }
+  .timeline-event.left .start-card.card-parttime { border-left: 3px solid rgba(255, 87, 87, 0.35); }
+  .timeline-event.left .start-card.card-internship { border-left: 3px solid rgba(167, 139, 250, 0.35); }
+
+  .timeline-event.left .end-card.card-seasonal,
+  .timeline-event.left .end-card.card-parttime,
+  .timeline-event.left .end-card.card-internship {
+    border-right-style: none !important;
+  }
+  .timeline-event.left .end-card.card-seasonal { border-left: 2px dashed rgba(78, 205, 196, 0.25); }
+  .timeline-event.left .end-card.card-parttime { border-left: 2px dashed rgba(255, 87, 87, 0.25); }
+  .timeline-event.left .end-card.card-internship { border-left: 2px dashed rgba(167, 139, 250, 0.25); }
 }
 
+/* ========================================
+   RESPONSIVE — MOBILE
+   ======================================== */
 @media (max-width: 600px) {
   .work-hero {
     min-height: 80vh;
     padding: 6rem 1.5rem 2rem;
   }
 
-  .hero-title {
-    font-size: clamp(2.5rem, 12vw, 4rem);
+  .hero-title { font-size: clamp(2.5rem, 12vw, 4rem); }
+  .start-journey-btn { padding: 0.875rem 2rem; font-size: 0.9rem; }
+
+  .timeline-section { padding: 4rem 1rem 8rem; }
+  .timeline-container { padding: 1.5rem 10px; }
+  .timeline-line { left: 20px; }
+  .timeline-event { padding-left: 48px !important; }
+
+  .timeline-event.left .event-dot,
+  .timeline-event.right .event-dot,
+  .timeline-event.left .dot-end,
+  .timeline-event.right .dot-end {
+    left: 9px;
   }
 
-  .start-journey-btn {
-    padding: 0.875rem 2rem;
-    font-size: 0.9rem;
-  }
-
-  .timeline-section {
-    padding: 4rem 1rem 8rem;
-  }
-
-  .timeline-container {
-    padding: 0 10px;
-  }
-
-  .timeline-line {
-    left: 20px;
-  }
-
-  .timeline-item {
-    padding-left: 50px !important;
-  }
-
-  .timeline-item.left .timeline-dot,
-  .timeline-item.right .timeline-dot {
-    left: 10px;
-  }
-
-  .timeline-card {
-    padding: 1.5rem;
-  }
-
-  .timeline-role {
-    font-size: 1.25rem;
-  }
-
-  .timeline-company {
-    font-size: 0.9rem;
-  }
-
-  .timeline-description {
-    font-size: 0.85rem;
-  }
-
-  .start-marker {
-    padding: 0.8rem 1.5rem;
-    gap: 0.75rem;
-  }
-
-  .start-marker span {
-    font-size: 0.75rem;
-  }
+  .year-label { margin-left: 2px; font-size: 0.7rem; padding: 0.35rem 0.9rem; }
+  .event-card { padding: 1.25rem; }
+  .end-card { padding: 0.85rem 1.25rem; }
+  .card-role { font-size: 1.1rem; }
+  .card-company { font-size: 0.8rem; }
+  .card-description { font-size: 0.82rem; }
+  .end-card-info { gap: 0.35rem; }
+  .end-role { font-size: 0.78rem; }
+  .end-company { font-size: 0.72rem; }
+  .start-marker { padding: 0.8rem 1.5rem; gap: 0.75rem; }
+  .start-marker span { font-size: 0.75rem; letter-spacing: 1.5px; }
 }
 
+/* ========================================
+   RESPONSIVE — SMALL MOBILE
+   ======================================== */
 @media (max-width: 400px) {
-  .timeline-card {
-    padding: 1.25rem;
-  }
-
-  .card-header {
+  .card-meta {
     flex-direction: column;
-    align-items: flex-start;
-    gap: 0.5rem;
+    align-items: flex-start !important;
+    gap: 0.4rem;
   }
 
-  .skill-tag {
-    font-size: 0.7rem;
-    padding: 0.3rem 0.7rem;
+  .end-card-info {
+    flex-direction: column;
+    align-items: flex-start !important;
   }
+
+  .end-sep { display: none; }
 }
