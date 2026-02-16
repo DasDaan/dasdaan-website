@@ -66,7 +66,7 @@
               </div>
             </div>
             <ul class="todo-list">
-              <li class="todo-item done">Lorem ipsum dolor</li>
+              <li class="todo-item done">Finishing this website</li>
               <li class="todo-item">Consectetur adipiscing</li>
               <li class="todo-item">Sed do eiusmod tempor</li>
               <li class="todo-item">Ut labore et dolore</li>

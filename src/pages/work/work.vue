@@ -8,8 +8,9 @@
         <p class="hero-subtitle">A timeline of my professional experiences and milestones</p>
         <button @click="scrollToStart" class="start-journey-btn">
           <span>Start Journey</span>
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 5v14M5 12l7 7 7-7"/>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 5v14M5 12l7 7 7-7" />
           </svg>
         </button>
       </div>
@@ -22,11 +23,7 @@
         <div class="timeline-line"></div>
 
         <!-- Timeline Item 4 (Most Recent - Top) -->
-        <div 
-          ref="timelineItem4" 
-          class="timeline-item right"
-          :class="{ 'animate-in': isItem4Visible }"
-        >
+        <div ref="timelineItem4" class="timeline-item right" :class="{ 'animate-in': isItem4Visible }">
           <div class="timeline-dot">
             <span class="dot-inner"></span>
           </div>
@@ -38,20 +35,16 @@
             <h3 class="timeline-role">Creative Developer</h3>
             <h4 class="timeline-company">Packhouse</h4>
             <p class="timeline-description">
-              My final internship where I worked on an XCube experience. I built an engine 
-              and designed games that could be imported into different styles. Did everything 
-              from designing the games myself, to programming them, and testing them with 
+              My final internship where I worked on an XCube experience. I built an engine
+              and designed games that could be imported into different styles. Did everything
+              from designing the games myself, to programming them, and testing them with
               different groups of people to see what worked.
             </p>
           </div>
         </div>
 
         <!-- Timeline Item 3 -->
-        <div 
-          ref="timelineItem3" 
-          class="timeline-item left"
-          :class="{ 'animate-in': isItem3Visible }"
-        >
+        <div ref="timelineItem3" class="timeline-item left" :class="{ 'animate-in': isItem3Visible }">
           <div class="timeline-dot">
             <span class="dot-inner"></span>
           </div>
@@ -63,20 +56,16 @@
             <h3 class="timeline-role">Simulation Developer</h3>
             <h4 class="timeline-company">Veiligheidsregio Noord-Holland Noord</h4>
             <p class="timeline-description">
-              My first internship! I made custom training scenarios for the fire department 
-              and helped out during the actual trainings. They put me behind the screens to 
-              control all the NPCs in the simulations. Also did some 3D modeling in Blender, 
+              My first internship! I made custom training scenarios for the fire department
+              and helped out during the actual trainings. They put me behind the screens to
+              control all the NPCs in the simulations. Also did some 3D modeling in Blender,
               though that wasn't really my thing.
             </p>
           </div>
         </div>
 
         <!-- Timeline Item 2 -->
-        <div 
-          ref="timelineItem2" 
-          class="timeline-item right"
-          :class="{ 'animate-in': isItem2Visible }"
-        >
+        <div ref="timelineItem2" class="timeline-item right" :class="{ 'animate-in': isItem2Visible }">
           <div class="timeline-dot">
             <span class="dot-inner"></span>
           </div>
@@ -88,20 +77,16 @@
             <h3 class="timeline-role">Store Associate</h3>
             <h4 class="timeline-company">Vomar Voordeelmarkt</h4>
             <p class="timeline-description">
-              Started out doing the usual supermarket stuff, but over time I became 
-              somewhat of an informal team leader. Nothing official, but I had enough 
-              experience to help out my colleagues when they had questions or needed 
+              Started out doing the usual supermarket stuff, but over time I became
+              somewhat of an informal team leader. Nothing official, but I had enough
+              experience to help out my colleagues when they had questions or needed
               a hand with tasks.
             </p>
           </div>
         </div>
 
         <!-- Timeline Item 1 (Oldest - Bottom) -->
-        <div 
-          ref="timelineItem1" 
-          class="timeline-item left"
-          :class="{ 'animate-in': isItem1Visible }"
-        >
+        <div ref="timelineItem1" class="timeline-item left" :class="{ 'animate-in': isItem1Visible }">
           <div class="timeline-dot">
             <span class="dot-inner"></span>
           </div>
@@ -113,23 +98,20 @@
             <h3 class="timeline-role">Farm Worker</h3>
             <h4 class="timeline-company">Boltha</h4>
             <p class="timeline-description">
-              My very first job, started when I was 13. Did a bit of everything really – 
-              peeling bulbs, working on the land, cleaning, planting. Hard work but it 
+              My very first job, started when I was 13. Did a bit of everything really –
+              peeling bulbs, working on the land, cleaning, planting. Hard work but it
               taught me a lot about just getting things done.
             </p>
           </div>
         </div>
 
         <!-- Journey Start Indicator -->
-        <div 
-          ref="journeyStart" 
-          class="journey-start"
-          :class="{ 'animate-in': isJourneyStartVisible }"
-        >
+        <div ref="journeyStart" class="journey-start" :class="{ 'animate-in': isJourneyStartVisible }">
           <div class="start-marker">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-              <polyline points="22 4 12 14.01 9 11.01"/>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+              <polyline points="22 4 12 14.01 9 11.01" />
             </svg>
             <span>Journey Begins</span>
           </div>
@@ -160,7 +142,7 @@ let observer = null
 
 const scrollToStart = () => {
   if (journeyStart.value) {
-    journeyStart.value.scrollIntoView({ 
+    journeyStart.value.scrollIntoView({
       behavior: 'smooth',
       block: 'center'
     })
@@ -169,7 +151,7 @@ const scrollToStart = () => {
 
 onMounted(async () => {
   await nextTick()
-  
+
   // Intersection Observer for animations
   observer = new IntersectionObserver(
     (entries) => {
